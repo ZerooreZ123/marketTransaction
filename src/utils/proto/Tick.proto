@@ -1,0 +1,34 @@
+package com.xinyu.unidata.protocbuf;
+
+import "Security.proto";
+
+option java_package = "com.xinyu.unidata.protocbuf";
+option java_outer_classname = "TickProto";
+// 分时成交
+message Tick{
+	//日期格式yyyyMMdd
+	required int32 date = 1;
+	//时间格式HHmmssSSS
+	required int32 time = 2;
+
+
+
+	//价格
+	optional int64 price = 3;
+	//成交量
+	optional int64 volume = 4;
+	//买卖标志
+	optional string bsflag = 5;
+
+	//持仓量
+	optional int32 ccl = 6;
+
+	required StockBasic stockBasic = 7;
+
+	//成交额
+	optional int64 amount = 8;
+
+	//昨收价
+	optional int64 preClose = 9;
+
+}

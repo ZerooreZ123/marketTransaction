@@ -1,0 +1,37 @@
+@import "../../resources/style/ConfigVariables";
+.tableInTabUpper{
+  position: relative;
+  background: @background-color-tab;
+  .wrapped{
+    width: 100%;
+    height: calc(~'100% - 30px');
+    border-bottom:1px solid @border-color-base;
+  }
+  .tabUpper{
+    height: 30px;
+    width: calc(~'100% - 74px');
+    //padding-right: 74px;
+    padding-left: 7px;
+    background: @background-color-tab;
+    overflow: hidden;
+    .menuItem, .menuMore{
+      float: left;
+      padding: 0 17px;
+      line-height: 30px;
+      border-left: 1px solid @border-color-base;
+      color: #d8dfeb;
+    }
+    .menuItem:nth-child(1){
+      border-left: 0;
+    }
+    .active{
+      background: @font-tab-active;
+      color:@font-table-active-color;
+    }
+  }
+  .menuMore{
+    background: #1d2c53;
+    position: absolute;
+    right: 0;
+  }
+}

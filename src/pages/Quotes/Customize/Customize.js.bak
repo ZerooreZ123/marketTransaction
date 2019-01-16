@@ -1,0 +1,423 @@
+import React, { Component } from 'react';
+import './Customize.less';
+import { message, Modal, Dropdown, Icon, Menu } from 'antd';
+import _merge from 'lodash/merge';
+import _cloneDeep from 'lodash/cloneDeep';
+import { MouseEventTool} from "@/utils/BaseTools.js";
+import CompGenerater from '@/components/modules/CompGenerater';
+import config from '@/components/modules/Config.js';
+
+
+class Customize extends MouseEventTool{
+  constructor(props){
+    super(props);
+    this.onWindowResize = this.onWindowResize.bind(this);
+    this.lastMountComp = {};
+    this.times = 0;
+    this.customizeItemSample = {
+      comps: [],
+      compNum: 0,
+      maxLeft: 3,
+      maxTop: 3,
+    }
+    this.state = {
+      // bar配置
+      barConfig: [
+        {name: '综合盯盘', setItem: ['edit', 'rename', 'delete']},
+      ],
+      currentBar: 0,  //
+      globalComp: _cloneDeep(this.customizeItemSample),
+      customize: [_cloneDeep(this.customizeItemSample)],
+      index: 0,
+      boxWidth: 0,    // 面板宽
+      boxHeight: 0,   // 面板高
+      operInfo: {},   // 移动或改变大小组件的信息
+    }
+  }
+
+  componentDidMount(){
+    let self = this;
+    let { clientWidth: boxWidth, clientHeight: boxHeight } = document.querySelector('.customize .mainBox');
+    this.setState({boxWidth, boxHeight});
+    this.loadPluginPath('CompPanel', {
+      props: {
+        style: {
+          top: '50px',
+          right: '20px',
+          zIndex: 2,
+          height: '425px'
+        }
+      },
+      config: {
+        titleName: '选择组件',
+        hasSetting: false,
+      },
+      type: 'global',
+      subProps: {
+        onClickHandler: this.onClickHandler,
+        pluginClick: (setting) => {
+          let customizeItem = self.state.customize[self.state.index];
+          if(customizeItem.compNum > 15){
+            message.info('盯盘最多显示15个');
+            return;
+          }
+          const {scrollWidth: boxWidth, scrollHeight: boxHeight} = self.$('.mainBox')[0]
+            , setWidth = setting.config.width
+            , setHeight = setting.config.height;
+          if(customizeItem.maxLeft + setWidth > boxWidth){
+            // 换行
+            customizeItem.maxTop = Math.max(...Array.from(customizeItem.comps, item => {
+              if(item.type === 'global')return -1;
+              return parseFloat(item.props.style.top) + parseFloat(item.props.style.height)
+            }))
+            customizeItem.maxLeft = 3;
+          }
+          let left = customizeItem.maxLeft, top = customizeItem.maxTop;
+          if(customizeItem.maxLeft + setWidth > boxWidth || customizeItem.maxTop + setHeight > boxHeight){
+            left = (boxWidth - setWidth) / 2;
+            top = (boxHeight - setHeight) / 2;
+          }
+          let config = {
+            props: {
+              style: {
+                top,
+                left,
+                width: setWidth,
+                height: setHeight
+              }
+            },
+            config: {
+              titleName: setting.cn
+            },
+            subProps: {
+              name: setting.compName
+            }
+          }
+          self.loadPluginPath(setting.compName, config);
+        }
+      }
+    });
+    window.addEventListener('resize', this.onWindowResize);
+    //bindResizeEvent()
+  }
+
+  updateSetting(name, setting, Comp){
+    let id = setting.type === 'global'
+      ? `${name}_${this.state.globalComp.compNum++}_global`
+      : `${name}_${this.state.customize[this.state.index].compNum++}_local`;
+    let newSetting = _merge({
+      props: {
+        style: {
+          width: '300px',
+          height: '400px',
+          overflow: 'hidden',
+          zIndex: 1
+        },
+        id
+      },
+      subProps: {subCompId: id},
+      config: {
+        resizable: true,
+        moveable: true,
+        hasClose: true,
+        hasSetting: true,
+        titleName: '组件名',
+        id
+      },
+    }, setting);
+    this.setState(prev => {
+      this.lastMountComp = {...newSetting.config};
+      if(newSetting.type !== 'global'){
+        prev.customize[prev.index].maxLeft += parseFloat(newSetting.props.style.width);
+        //this.maxTop += parseFloat(newSetting.props.style.height);
+        prev.customize[prev.index].comps.push({ Comp, name, id, ...newSetting });
+      }else{
+        prev.globalComp.comps.push({Comp, name, id, ...newSetting});
+      }
+      return prev;
+    })
+  }
+
+  loadPluginPath(name, setting){
+    /* *****************
+     * 动态加载模块
+     * this.loadPluginPath(name, setting)
+     *   name: 模块名
+     *   setting: 配置项
+     * ****************/
+    if(config[name]){
+      this.updateSetting(name, setting, CompGenerater);
+    }else{
+      import(`@/components/modules/${name}`)
+        .then(mod => {
+          this.updateSetting(name, setting, mod.default);
+        })
+        .catch(err => {
+          console.log('模块加载失败, err: ', err);
+        })
+    }
+  }
+
+  getAttribute(e){
+    e.stopPropagation();
+    let [tarEleId, tmpType] = e.currentTarget.getAttribute("data-type").split('-');
+    let tmpObj = {
+      tarEleId,
+      tarEle: this.$(`#${tarEleId}`),
+      type: tmpType,
+    };
+    switch(tmpObj.type){
+      case 'title':
+        tmpObj.operType = 'move';
+        tmpObj.config = [{
+          main: 'left',
+          maxData: this.$('.mainBox')[0].scrollWidth - tmpObj.tarEle[0].scrollWidth,
+          minData: 3
+        }, {
+          main: 'top',
+          maxData: this.$('.mainBox')[0].scrollHeight - tmpObj.tarEle[0].scrollHeight,
+          minData: 3
+        }];
+        break;
+      default:
+        tmpObj.operType = `resize-${tmpObj.type}`;
+        tmpObj.config = [{
+          main: 'width',
+          maxData: 800,
+          minData: 50
+        }, {
+          main: 'height',
+          maxData: 600,
+          minData: 50
+        }, {
+          main: 'left',
+          maxData: (data, config, main) => data.width >= config[0].maxData || data.width <= config[0].minData? -1: data.left,
+          minData: 3
+        }, {
+          main: 'top',
+          maxData: (data, config, main) => data.height >= config[1].maxData || data.height <= config[1].minData? -1: data.top,
+          minData: 3
+        }];
+    }
+    tmpObj.endCallBack = info => {
+      let [cmpName, index, type] = info.tarEleId.split('_');
+      index = parseInt(index);
+      console.log(this.state, tmpObj);
+      if(type === 'global'){
+        info.config.forEach(item => this.state.globalComp.comps[index].props.style[item.main] = info['new_' + item.main] + 'px');
+      }else if(type === 'local'){
+        info.config.forEach(item => this.state.customize[this.state.index].comps[index].props.style[item.main] = info['new_' + item.main] + 'px');
+      }
+    }
+    return tmpObj;
+  }
+
+  bindResizeEvent(){
+    /* *****************
+     * 组件加载后为组件title和边条添加`mousedown`事件监听
+     * this.bindResizeEvent()
+     * ****************/
+    this.addEvent('mousedown', 'startHandle', `#${this.lastMountComp.id} .resizable div`);
+    this.addEvent('mousedown', 'startHandle', `#${this.lastMountComp.id} .pluginTitle`);
+  }
+
+  unBindResizeEvent(){
+    this.removeEvent('mousedown', 'startHandle', `.customize .resizable div`);
+  }
+
+  componentDidUpdate(prevProps){
+    this.lastMountComp.resizable && (this.bindResizeEvent());
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onWindowResize);
+  }
+
+  onWindowResize(){
+    let now = Date.now();
+    if(now > this.times)this.times = now
+    setTimeout(() => {
+      if(now === this.times){
+        this.setState(prevState => {
+          let { clientWidth: boxWidth, clientHeight: boxHeight } = document.querySelector('.customize .mainBox');
+          for (var e = document.querySelectorAll(`.customize .subComp`), t = 0, n = e.length; t < n; t++){
+            if(e[t].offsetLeft + e[t].offsetWidth > boxWidth){
+              let left = boxWidth - e[t].offsetWidth;
+              left < 0 && (left = 0);
+              e[t].style.left = `${left}px`;
+            }
+            if(e[t].offsetTop + e[t].offsetHeight > boxHeight){
+              let top = boxHeight - e[t].offsetHeight;
+              top < 0 && (top = 0);
+              e[t].style.top = `${top}px`;
+            }
+          }
+          return {...prevState, boxWidth, boxHeight};
+        });
+      }
+    }, 50);
+  }
+
+  onClickHandler({e, type, index, id, data, setting}){
+    let self = this;
+    switch(type){
+      case 'add':
+        // 添加标签页
+        this.setState(prev => {
+          prev.barConfig.push({name: '自定义', setItem: ['edit', 'rename', 'delete']})
+          prev.customize.push(_cloneDeep(this.customizeItemSample));
+          prev.currentBar = prev.barConfig.length - 1;
+          prev.index = prev.barConfig.length - 1;
+          return prev
+        })
+        break;
+      case 'edit':
+        // 显示插件工具栏
+        document.getElementById('CompPanel_0_global').style.display = 'block';
+        break;
+      case 'rename':
+        // 改名
+        break;
+      case 'delete':
+        // 删除
+        Modal.confirm({
+          title: '删除面板',
+          content: '删除后将无法找回, 确定要删除该面板嘛?',
+          okText: '确定',
+          okType: 'danger',
+          cancelText: '取消',
+          onOk() {
+            self.setState(prev => {
+              prev.barConfig.splice(index, 1);
+              return prev
+            })
+          },
+          onCancel() {
+          },
+        });
+        break;
+      case 'ok':
+        // 组件面板确定按钮点击事件
+        break;
+      case 'no':
+        // 组件面板取消按钮点击事件
+        document.getElementById('CompPanel_0_global').style.display = 'none';
+        break;
+      case 'select':
+        this.setState(prev => {
+          prev.currentBar = index;
+          prev.index = index;
+          return prev;
+        });
+        break;
+    }
+  }
+
+  grenMenu(item, index){
+    let nameMap = {
+      edit: '编辑面板',
+      rename: '修改名称',
+      delete: '删除面板'
+    }
+    return (
+      <Menu>
+        {
+          item.setItem.map(item => {
+            return (
+              <Menu.Item
+                onClick={(e) => this.onClickHandler({e, type: item, index})}
+                key={item}>
+                <span>{nameMap[item]}</span>
+              </Menu.Item>
+            )
+          })
+        }
+      </Menu>
+    )
+  }
+
+  getSubComp(Comp, index) {
+    const {Comp: Component, id, name, props, subProps, config} = Comp;
+    return (
+      <div
+        className="subComp"
+        {...props}
+        key={id}
+      >
+        <div className="resizable">
+          {
+            ['top', 'right', 'bottom', 'left', 'tl', 'tr', 'br', 'bl'].map(type => {
+              return (
+                <div
+                  style={{zIndex: parseInt(id.split('_')[1]) + 10}}
+                  key={[id, type].join('-')}
+                  data-type={[id, type].join('-')}
+                  className={`resize-${type}`}
+                ></div>
+              )
+            })
+          }
+        </div>
+        <div
+          data-type={`${id}-title`}
+          className="pluginTitle">
+          {config.titleName}
+          <div className="oper">
+            { config.hasSetting && <Icon type="setting"/> }
+            { config.hasClose && <Icon type="close"/> }
+          </div>
+        </div>
+        <div style={{width: '100%', height: 'calc(100% - 32px)'}}>
+          <Component {...subProps}/>
+        </div>
+      </div>
+    )
+  }
+
+  render() {
+    let { comps, compNum } = this.state.customize[this.state.index];
+    console.log('customize组件渲染次数: ', this.renderTime);
+    return (
+      <div
+        className="customize"
+        id={this.compId}
+      >
+        <div className="handlerBar">
+          <div className="handlerBarLeft">
+            {
+              this.state.barConfig.map((item, index) => {
+                let menu = this.grenMenu(item, index);
+                return (
+                  <div
+                    onClick={e => this.onClickHandler({e, index, data: item, type: 'select'})}
+                    key={index}
+                    className={`ant-dropdown-link barMenuLeft ${this.state.currentBar === index? 'on': ''}`}>
+                    {item.name}
+                    <Dropdown overlay={menu} trigger={['click']}>
+                      <Icon className="caret-down" type="caret-down" />
+                    </Dropdown>
+                  </div>
+                )
+              })
+            }
+            <div className="barMenuAdd" onClick={(e) => this.onClickHandler({e, type: 'add'})}>
+              <Icon type="plus" />
+            </div>
+          </div>
+          <div className="handlerBarRight">
+            <div className="barMenuRight"><Icon type="tool" /></div>
+            <div className="barMenuRight"><Icon type="save" /></div>
+            <div className="barMenuRight"><Icon type="appstore" /></div>
+            <div className="barMenuHelp">帮助</div>
+          </div>
+        </div>
+        <div ref='mainBox' className='mainBox'>
+          { this.state.globalComp.comps.map((comp, index) => this.getSubComp(comp, index)) }
+          { comps.map((Comp, index) => this.getSubComp(Comp, index)) }
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Customize;

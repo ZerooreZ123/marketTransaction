@@ -1,0 +1,52 @@
+syntax = "proto2";
+
+package md.proto;
+
+option cc_enable_arenas = true;
+option optimize_for = SPEED;
+
+option java_package = "com.xinyu.unidata.protocbuf";
+option java_outer_classname = "CMSKLineProto";
+// K线数据
+message KLine{
+    //日期格式yyyyMMdd
+    required int32 date = 1;
+    //时间格式HHmmssSSS
+    required int32 time = 2;
+
+
+    //开盘价
+    optional int64 open = 3;
+    //最高价
+    optional int64 high = 4;
+    //最低价
+    optional int64 low = 5;
+    //收盘价
+    optional int64 close = 6;
+
+    //成交量
+    optional int64 volume = 7;
+    //成交金额
+    optional int64 amount = 8;
+    //持仓量
+    optional int32 ccl = 9;
+    // 涨跌
+    optional int64 netChange = 10;
+    // 涨跌幅
+    optional float netChangeRatio = 11;
+    // 昨收
+    optional int64 preClose = 12;
+    //交易所
+    optional int32 exchange= 13;
+    //定位串
+    optional string index=14;
+    //代码
+    optional string code=15;
+    //类型
+    optional string cycle=16;
+}
+
+message KLineList
+{
+    repeated KLine kline = 1;
+}

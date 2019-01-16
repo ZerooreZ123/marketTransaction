@@ -1,0 +1,27 @@
+// See README.txt for information and build instructions.
+
+package com.xinyu.unidata.protocbuf;
+
+option java_package = "com.xinyu.unidata.protocbuf";
+option java_outer_classname = "MarketInfoProtos";
+// 交易所信号信息
+message MarketInfo {
+  //日期格式yyyyMMdd
+  required int32 date = 1;
+  // 市场 A HK AG
+  optional string exchange = 2;
+  enum InfoType {
+    opening = 0; //开盘
+    closed = 1;  //收盘
+    midopen = 2; //中午开盘
+    midclosed = 3; //中午收盘
+    notOpen = 4;  //未开盘
+    auction = 5;  //集合竞价
+    amTransaction = 6;  //上午开盘
+  }
+
+  optional InfoType type = 3;
+  // 是否开启回放
+  optional bool playback = 4;
+}
+

@@ -1,0 +1,66 @@
+//引入全局样式
+@import "../../resources/style/ConfigVariables";
+
+.menuList_add{
+  .add{
+    display: block !important;
+  }
+  .del{
+    display: none !important;
+  }
+}
+
+.menuList_del{
+  .add{
+    display: none !important;
+  }
+  .del{
+    display: block !important;
+  }
+}
+
+.menuList_none{
+  .add{
+    display: none !important;
+  }
+  .del{
+    display: none !important;
+  }
+}
+
+.menuList{
+  position: fixed;
+  z-index: 100;
+  list-style: none;
+  background-color: #fafafa;
+  border-radius: 4px;
+  cursor: default;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  ul{
+    text-align: left;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+    margin: 0;
+    padding: 0;
+    .add, .del{
+      display: none;
+    }
+    li{
+      width: 100px;
+      position: relative;
+      padding: 0 0.3em 0 0.16em;
+      white-space: nowrap;
+      list-style: none;
+      height: 30px;
+      line-height: 30px;
+      min-width: 60px;
+      max-width: 120px;
+      box-sizing: border-box;
+      color: #333;
+      text-align: center;
+    }
+    li:hover{
+      background: #71b0ea;
+      color: #fff;
+    }
+  }
+}

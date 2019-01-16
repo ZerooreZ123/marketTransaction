@@ -1,0 +1,17 @@
+// See README.txt for information and build instructions.
+
+package com.xinyu.unidata.protocbuf;
+
+option java_package = "com.xinyu.unidata.protocbuf";
+option java_outer_classname = "RankSignalProtos";
+// 排行信号
+message RankSignal {
+  //日期格式yyyyMMdd
+  required int32 date = 1;
+  //時間
+  required int32 time = 2;
+  // 市场代码 A-A股 HK-港股
+  required string market = 3;
+
+}
+

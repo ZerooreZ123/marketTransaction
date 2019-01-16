@@ -1,0 +1,24 @@
+
+package com.xinyu.unidata.protocbuf;
+
+option java_package = "com.xinyu.unidata.protocbuf";
+option java_outer_classname = "SubProtos";
+// 订阅接口 （内部使用）
+message Sub
+{
+    // 交易所
+    required string exchange = 1;
+    // 股票区间-小
+    optional int32 codeSectionMin = 2;
+    // 股票区间-大
+    optional int32 codeSectionMax = 3;
+    // 订阅数据类型
+    optional int32 dataType = 4;
+    // 是否订阅所有股票
+    optional bool allCode = 5;
+    // 是否订阅所有数据类型
+    optional bool allDataType = 6;
+
+}
+
+

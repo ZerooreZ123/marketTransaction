@@ -1,0 +1,19 @@
+package com.xinyu.unidata.protocbuf;
+
+import "SnapBody.proto";
+
+option java_package = "com.xinyu.unidata.protocbuf";
+option java_outer_classname = "ClassifyMemberRankProto";
+
+// 股票分类成分股排行榜
+message ClassifyMemberRank{
+
+	required string exchange = 1;
+	
+	required string code = 2;
+
+	repeated SnapBody rankList = 3;
+
+	required string rankTarget = 4;
+
+}

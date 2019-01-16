@@ -1,0 +1,239 @@
+.getflex(@row: flex-start; @col: flex-start; @main: row) {
+  display: -webkit-flex;
+  justify-content: @row;
+  flex-direction: @main;
+  align-items: @col;
+}
+
+@barHeight: 0.38rem;
+
+.customize{
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  // padding: 3px;
+  .handlerBar{
+    border-bottom: 1px solid @border-color-base;
+    font-size: 0.14rem;
+    height: @barHeight;
+    background: @background-color-plate;
+    .getflex(space-between; center);
+    .handlerBarLeft{
+      .getflex();
+      height: 100%;
+      .on{
+        background: #c32530;
+        border: 1px solid #c32530;
+        color: @font-color-base;
+      }
+      .barMenuLeft{
+        height: 100%;
+        width: 0.16rem * 6;
+        border-right: 1px solid @border-color-base;
+        .getflex(center; center);
+        .caret-down{
+          font-size: 0.1rem;
+        }
+      }
+      .barMenuAdd{
+        width: @barHeight;
+        height: 100%;
+        font-size: 0.2rem;
+        .getflex(center; center);
+        border-right: 1px solid @border-color-base;
+      }
+    }
+    .handlerBarRight{
+      height: 100%;
+      .getflex();
+      .barMenuRight, .barMenuHelp{
+        height: 100%;
+        .getflex(center; center);
+      }
+      .barMenuRight{
+        width: @barHeight;
+        font-size: 0.16rem;
+      }
+      .barMenuRight:hover{
+        background:@font-color-list-active;
+      }
+      .barMenuHelp{
+        width: @barHeight * 1.5;
+        font-size: 0.14rem;
+      }
+    }
+  }
+  .mainBox{
+    // padding: 5px;
+    height: calc(~'100% - 0.38rem');
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    .subComp{
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      background: #101f3c;
+      // border: 1px solid @border-color-base;
+      .pluginTitle{
+        position: relative;
+        width: 100%;
+        height: 32px;
+        color: @font-color-base;
+        background: #42598b;
+        padding-left: 10px;
+        .getflex(center; center);
+        .operLeft{
+          position: absolute;
+          height: 100%;
+          left: 10px;
+          .getflex(center; center);
+        }
+        .groupId{
+          width: 17px;
+          height: 17px;
+          font-size: 14px;
+          background: rgba(0, 0, 0, 0);
+          border: 1px solid currentColor;
+          display: inline-block;
+          margin: 0 3px;
+          .getflex(center; center);
+        }
+        .operRight{
+          position: absolute;
+          height: 100%;
+          font-size: 18px;
+          right: 5px;
+          i{
+            margin: 0 3px;
+          }
+          .getflex(center; center);
+          .compSearch{
+            z-index: 10;
+            margin: 0 3px;
+            position: relative;
+            .getflex(center; center);
+            .ant-input{
+              height: 17px;
+              width: 60px;
+            }
+            .ant-input-group-addon{
+              padding: 0 5px;
+            }
+            .ant-input, .ant-input-group-addon{
+              background: #13161f;
+              color: #9da1a9;
+              font-size: 12px;
+              border-radius: 0;
+            }
+            .searchPanel{
+              background: rgba(38, 47, 69, 1);
+              font-size: 12px;
+              top: 18px;
+              position: absolute;
+              width: 100%;
+              .searchItem{
+                padding: 2.5px 0px;
+                width: 100%;
+                height: 28px;
+                .getflex(flex-start; center);
+                div{
+                  padding: 0 5px;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                }
+                .stockCode{
+                  width: 60px;
+                }
+              }
+              .select{
+                background: @font-color-list-active;
+              }
+            }
+          }
+        }
+      }
+      .resizable{
+        >div{
+          position: absolute;
+        }
+        .resize-top, .resize-bottom{
+          left: -3px;
+          right: -3px;
+          height: 6px;
+          cursor: ns-resize;
+        }
+        .resize-right, .resize-left{
+          top: -3px;
+          bottom: -3px;
+          width: 6px;
+          cursor: ew-resize;
+        }
+        .resize-top{
+          top: -3px;
+          box-shadow: inset 0px 4px rgba(2, 12, 42, .6);
+        }
+        .resize-right {
+          right: -3px;
+          box-shadow: inset -4px 0px rgba(2, 12, 42, .6);
+        }
+        .resize-bottom {
+          bottom: -3px;
+          box-shadow: inset 0px -4px rgba(2, 12, 42, .6);
+        }
+        .resize-left {
+          left: -3px;
+          box-shadow: inset 4px 0px rgba(2, 12, 42, .6);
+        }
+        .resize-tl, .resize-tr, .resize-br, .resize-bl {
+          width: 6px;
+          height: 6px;
+        }
+        .resize-tl{
+          top: -3px;
+          left: -3px;
+          cursor: nwse-resize;
+        }
+        .resize-tr {
+          top: -3px;
+          right: -3px;
+          cursor: nesw-resize;
+        }
+        .resize-br {
+          bottom: -3px;
+          right: -3px;
+          cursor: nwse-resize;
+        }
+        .resize-bl {
+          bottom: -3px;
+          left: -3px;
+          cursor: nesw-resize;
+        }
+      }
+    }
+  }
+}
+.popoverBox{
+  .ant-popover-arrow{
+    background-color: #374b7f;
+  }
+  .ant-popover-inner-content{
+    padding: 0px !important;
+  }
+  .groupBox{
+    .groupTitle{
+      text-align: center;
+      background-color: #374b7f;
+      color: #fff;
+      padding: 3px 0;
+      font-size: 12px;
+    }
+    .groupItem{
+      padding: 0 5px;
+      &:hover{
+        background: #ccc;
+      }
+    }
+  }
+}

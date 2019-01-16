@@ -1,0 +1,105 @@
+@import "../../resources/style/ConfigVariables";
+
+.pensContent{
+  background:  @background-color-plate;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 100%;
+  width: 100%;
+  .pensContentTop{
+    height: 28px;
+    position: relative;
+    .getflex(flex-start; center);
+    >span{
+      margin-left: 20px;
+    }
+    .stockInfo{
+      z-index: -1;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      font-weight: 500;
+      letter-spacing: 3px;
+      .getflex(center; center);
+    }
+  }
+  .pensContentMiddle{
+    display: flex;
+    width: 100%;
+    overflow: scroll;
+    flex-direction: column;
+    height: calc(~'100% - 30px');
+    position: relative;
+    .pensDetailListTop{
+      width: !00;
+      height: 28px;
+      .countTitle{
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        border-top: 1px solid @border-color-base;
+        border-bottom: 1px solid @border-color-base;
+        ul{
+          width: 205px;
+          flex: 1;
+          display: flex;
+          flex-direction: row;
+          padding: 0 10px;
+          li{
+            .getflex(flex-start; center);
+          }
+          li:nth-child(1){
+            width: 52px;
+          }
+          li:nth-child(2){
+            width: 63px;
+          }
+          li:nth-child(3){
+            width: 70px;
+          }
+        }
+      }
+    }
+    .rowLine{
+      background: @border-color-base;
+      width: 1px;
+      height: 100%;
+      position: absolute;
+    }
+    .pensDetailList{
+      height: calc(~'100% - 28px');
+      border-bottom: 1px solid @border-color-base;
+      .countMain{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width:100%;
+        height: 100%;
+        .itemList{
+          width: 205px;
+          display: flex;
+          flex-direction: row;
+          padding: 0 10px;
+          span{
+            label:last-child{
+              float: right;
+            }
+          }
+          span:nth-child(1){
+            width: 52px;
+          }
+          span:nth-child(2){
+            width: 63px;
+          }
+          span:nth-child(3){
+            width: 70px;
+            color: @font-deal-color;
+          }
+        }
+      }
+    }
+
+  }
+}

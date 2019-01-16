@@ -1,0 +1,72 @@
+//引入全局样式
+@import "../style";
+.listText {
+  color: @font-color-base;
+  padding-top: 20px;
+  h3{margin-bottom: 10px;}
+  p{ text-indent: 2em;}
+}
+.chartContent{
+  position: relative;
+  width: 100%;
+  height: 300px;
+  display: flex;
+   >div{
+    flex: 1
+  }
+  .nextHald,.prevHald{
+    position: absolute;
+    right: 0;
+    width: 20px;
+    height: 40px;
+    border: 1px solid @font-color-base;
+    top: 50%;
+    transform: translate(0%, -50%);
+    padding-top:9px;
+  }
+  .prevHald{
+    left: 0;
+  }
+}
+.chartList{
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  >div{
+    flex: 1;
+  }
+}
+.ant-carousel{
+  width: 100%;
+  height: 100%;
+}
+.ant-carousel .slick-slider,.slick-slide,.slick-list,.slick-track {
+  text-align: center;
+  height: 100%;
+  // line-height: 160px;
+  // background: #364d79;
+  overflow: hidden;
+}
+.slick-slide{
+  >div{
+    height: 100%;
+    >div{
+      height: 100%;
+    }
+  }
+}
+// .ant-carousel .slick-slide h3 {
+//   color: #fff;
+// }
+// .capitalOperation{
+//   table{
+//     tr{
+//       td:first-child{
+//         background: #101f3c;
+//       }
+//       td:first-child :hover{
+//         background: #101f3c;
+//       }
+//     }
+//   }
+// }

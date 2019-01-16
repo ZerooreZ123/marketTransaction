@@ -1,0 +1,17 @@
+{
+  "extends": "react-app",
+  "rules": {
+    "no-undef": "off",
+    "no-restricted-globals": "off",
+    "no-useless-constructor": "off",
+    "radix": "off",
+    "no-mixed-operators": "off",
+    "react/jsx-pascal-case": "off",
+    "default-case": "off",
+    "no-unused-expressions": "off",
+    "no-sequences": "off",
+    "no-eval": "off",
+    "array-callback-return": "off",
+    "react/react-in-jsx-scope": "off"
+  }
+}

@@ -1,0 +1,35 @@
+package com.xinyu.unidata.protocbuf;
+
+option java_package = "com.xinyu.unidata.protocbuf";
+option java_outer_classname = "PriceFenceProto";
+
+// 分价
+message PriceFence{
+
+
+	// 价格构成
+	message Fence {
+		// 价格
+		optional int64 price = 1;
+		// 成交量
+		optional int64 volume = 2;
+		// 占比
+		optional float percent = 3;
+		// 竞买率
+		optional float bidRatio = 4;
+		// 买方量
+		optional int64 bidVolume = 5;
+		// 卖方量
+		optional int64 askVolume = 6;
+		// 无方向量
+		optional int64 noneVolume = 7;
+
+	}
+	repeated Fence fence = 1;
+	// 总量
+	required int64 volume = 2;
+
+	required int32 date = 3;
+	required int32 time = 4;
+	required int64 preClose = 5;
+}

@@ -1,0 +1,311 @@
+@import "../../../resources/style/ConfigVariables";
+.myAnimated {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  color:@font-color-base;
+}
+.quoteDetails {
+  width: 100%;height:100%;
+  background: #020c2a;
+  position: fixed; top: 0; left: 0px;
+  // padding: 2px;
+  z-index: 99;
+  overflow: hidden;
+  .chartMain,.chartMainMenu{
+    flex: 1;
+    display:flex;
+    div{
+      display: inline-block;
+      padding: 0 10px;
+      border-right: 1px solid @border-color-base;
+      cursor: pointer;
+      height:26px;
+      line-height: 26px;
+    }
+  }
+  .chartMain{
+    border-top: 1px solid @border-color-base !important;
+    background: @background-color-plate;
+  }
+  .detailsLeft {
+    float: left;
+    margin-right: 2px;
+    width: calc(100% - 334px);
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .detailsLeftTop{
+      border: 1px solid @border-color-base;
+      overflow: hidden;
+      margin-bottom: 2px;
+      position: relative;
+      height: 66.3%;
+      // display: flex;
+      // flex:2;
+      // flex-direction: column;
+      .header{
+        display: flex;
+        border-bottom: 1px solid @border-color-base;
+        background: @background-color-tab;
+        height:26px;
+        line-height: 26px;
+        .chartMain{
+          border-top:0;
+        }
+
+      }
+      .chartMainMenu{
+        position: absolute;
+        right: 0;
+        top: 3px;
+        z-index: 9;
+      }
+      .chartMainMenu div{
+        float: right;
+
+      }
+      .content{
+        height: 100%;
+      }
+
+
+    }
+    .detailsLeftBottom{
+      position: relative;
+      overflow: hidden;
+      height: 33.3%;
+      // flex: 1;
+      border: 1px solid @border-color-base;
+      .iconMain{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 2;
+        display: block;
+        width: 25px;
+      }
+      .glbjContent{
+        width: 100%;
+        height: 100%;
+        background: @background-color-plate;
+        .getflex(space-between);
+        .glbjListLeft{
+          width: 360px;
+          height: 100%;
+        }
+        .zjlsListLeft{
+          display: flex;
+          flex-direction: row;
+          color:@font-color-base;
+          .upDate{
+            text-align: center;
+            margin-top: 15px;
+          }
+          .lend{
+            flex: 1;
+            width:120px;
+            margin-top: 70px;
+            label{
+              display: inline-block;
+              width: 10px;
+              height: 10px;
+              border-radius: 100%;
+              margin-right: 5px;
+            }
+            
+          }
+          .picshow{
+            width: 200px;
+            height: 200px;
+            flex:1;
+          }
+        }
+        .glbjListRight{
+          width: calc(~"100% - 261px");
+          height: 100%;
+        }
+        .zjlxListRight{
+          padding: 0 60px;
+          table{
+            width: 100%;
+            margin-top: 28px;
+            border:1px solid @border-color-base;
+            color: @font-color-base;
+            text-align: center;
+
+          }
+        }
+      }
+
+
+      .bottomContent{
+        overflow: hidden;
+        display: flex;
+        height: 100%;
+
+
+        .newsMain{
+          background: @background-color-plate;
+          flex:1;
+          .newsTitle{
+           margin-top: 10px;
+           margin-left: 10px;
+           display: inline-block;
+          }
+          .time{
+            float: right;
+          }
+
+        }
+        .newsMain:first-child{
+          margin-right: 2px;
+        }
+      }
+      .bottomMenu{
+        width: 100%;
+        background: @background-color-plate;
+        height:26px;
+        line-height: 26px;
+
+        border: 1px solid @border-color-base;
+        border-top: 0;
+      }
+      .chartMain{
+        border: 0;
+        width: 100%;
+        background: @background-color-plate;
+        border-top: 0 !important;
+        
+       
+        div{
+          border-bottom: 1px solid @border-color-base;
+          border-right: 1px solid @border-color-base;
+        }
+      }
+      .outFlow{
+        color: @font-down-color;
+        margin-left: 5px;
+      }
+      .inFlow{
+        color: @font-up-color;
+        margin-left: 5px;
+      }
+    }
+
+  }
+  .detailsRight {
+    display: flex;
+    padding-bottom: 0;
+    flex-direction: column;
+    width: 332px;
+    float: left;
+    height: 100%;
+    border: 1px solid @border-color-base;
+    .fiveMain{
+      // flex: 0.5;
+      height: 500px;
+      border: 1px solid @border-color-base;
+      margin-bottom:2px;
+      // overflow: hidden;
+    }
+    .dealMain{
+      background:@background-color-plate;
+      border-top: 1px solid @border-color-base;
+      margin-top: 1px;
+      // flex: 0.5;
+      display: flex;
+      position: relative;
+      height: 100%;
+      flex-direction: column;
+      // padding: 0 8px 0 0px;
+      >div{
+        // margin-top: 5px;
+      }
+      td{
+        color: @font-new-color;
+      }
+      .chartMain{
+        position: absolute;
+        bottom: 0;
+      }
+
+      .tableOutDiv{
+        margin:0 5px;
+        height:100%;
+        width:320px;
+        border-right:1px solid @border-color-base;
+      }
+    }
+  }
+  .active{
+    background: @font-tab-active;
+    color:@font-table-active-color;
+  }
+
+  .heightZS{
+    height: 262px;
+  }
+  .heightGP{
+    background:@background-color-tab;
+    height: 498px;
+  }
+  .heightBK{
+    height: 80px;
+  }
+  .isShow{
+    display: block;
+  }
+  .isHide{
+    display: none;
+  }
+  .chartMain1{
+    display: flex;
+    // padding: 5px 10px;
+    border: 1px solid  @border-color-base;
+    border-top: 0;
+    margin-top: 1px;
+   >div{
+      padding: 2px 0;
+      flex: 1;
+      text-align: center;
+      font-weight: bolder;
+      border-left: 1px solid @border-color-base;
+    }
+  }
+  .ant-tabs {
+    width: 100%;
+    height: 100%;
+    .ant-tabs-content {
+      height: calc(~'100% - 26px');
+    }
+  }
+  .ant-tabs-bottom > .ant-tabs-bar{
+    margin-top: 0;
+    border: 0;
+    height: 26px;
+  }
+  .ant-tabs-tabpane{
+    height: 100%;
+  }
+  .ant-tabs.ant-tabs-card.ant-tabs-bottom > .ant-tabs-bar .ant-tabs-tab{
+    border: 0;
+    margin-top: 0;
+    border-radius:0;
+    height: 26px;
+    line-height: 26px;
+    background: @background-color-tab;
+    border-left:1px solid  @border-color-base;
+  }
+  .ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-nav-container{
+    background:  @background-color-tab;
+    border-top: 1px solid @border-color-base;
+    z-index: 1;
+  }
+  .ant-tabs.ant-tabs-card.ant-tabs-bottom > .ant-tabs-bar .ant-tabs-tab-active{
+    padding-top: 0;
+  }
+}

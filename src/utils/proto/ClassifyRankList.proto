@@ -1,0 +1,37 @@
+package com.xinyu.unidata.protocbuf;
+
+import "Security.proto";
+
+option java_package = "com.xinyu.unidata.protocbuf";
+option java_outer_classname = "ClassifyRankListProto";
+
+// 股票分类排行榜 包括-行业、概念、板块等
+message ClassifyRankList{
+	// 排行数据
+	message Rank {
+		// 指数代码
+		optional string code = 1;
+
+		// 指数名称
+		optional string name = 2;
+
+		// 涨跌比率
+		optional float changeRatio = 3;
+
+		// 涨幅最大的个股
+		optional StockBasic riseMaxStock = 4;
+
+		// 跌幅最大的个股
+		optional StockBasic fallMaxStock = 5;
+
+		// 排行顺序
+		optional int32 rankIndex = 6;
+
+		// 换手率
+		optional float turnoverRatio = 7;
+
+
+	}
+
+	repeated Rank rank = 3;
+}

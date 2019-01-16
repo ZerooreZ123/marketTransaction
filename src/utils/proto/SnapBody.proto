@@ -1,0 +1,119 @@
+package com.xinyu.unidata.protocbuf;
+
+import "Security.proto";
+
+option java_package = "com.xinyu.unidata.protocbuf";
+option java_outer_classname = "SnapBodyProto";
+
+// 个股报价
+
+message SnapBody{
+	// 日期格式
+	required int32 date = 1;
+	// 时间格式
+	required int32 time = 2;
+
+	// 股票信息
+	required StockBasic stockBasic = 3;
+
+	// 昨收盘价
+	optional int64 preClose = 4;
+	// 最高价
+	optional int64 high = 5;
+	// 开盘价
+	optional int64 open = 6;
+	// 最低价
+	optional int64 low = 7;
+	// 今收盘价
+	optional int64 close = 8;
+
+	// 现量 (股)
+	optional int64 nowVolume = 10;
+	// 现额 (元)
+	optional int64 nowAmount = 11;
+
+	// 成交总量 (股)
+	optional int64 volume = 12;
+	// 成交金额 (元)
+	optional int64 amount = 13;
+
+
+	// 卖一价
+	optional int64 ask1Price = 14;
+	// 卖一量
+	optional int64 ask1Volume = 15;
+	// 买一价
+	optional int64 bid1Price = 16;
+	// 买一量
+	optional int64 bid1Volume = 17;
+
+
+	// 涨跌
+	optional int64 netChange = 18;
+	// 涨跌幅
+	optional float netChangeRatio = 19;
+	// 振幅
+	optional float amplitudeRatio = 20;
+	// 换手率
+	optional float turnoverRatio = 21;
+
+	// 量比
+	optional float volumeRatio = 22;
+	// 委比
+	optional float quoteRatio = 23;
+	// 委差
+	optional int64 quoteMargin = 24;
+	// 速涨率
+	optional float speedRatio = 25;
+
+	// 市盈率
+	optional float peRatio = 26;
+	// 市净率
+	optional float pbRatio = 27;
+	// 市销率
+	optional float psRatio = 28;
+
+	// 流通市值
+	optional int64 currencyValue = 29;
+	// 总市值
+	optional int64 capitalization = 30;
+
+
+	// 内盘数量
+	optional int64 innerVolume = 31;
+	// 外盘数量
+ 	optional int64 outerVolume = 32;
+	// 成交笔数
+	optional int32 dealCount = 33;
+
+
+	// 大资金流入
+	optional int64 bigInflows = 34;
+	// 大资金流出
+	optional int64 bigOutflows = 35;
+	// 大资金净流入
+	optional int64 bigNetflows = 36;
+	// 总资金流入
+	optional int64 sumInflows = 37;
+	// 总资金流出
+	optional int64 sumOutflows = 38;
+	// 总资金净流入
+	optional int64 sumNetflows = 39;
+	// 均价
+	optional int64 avgPrice = 40;
+
+  // 流通股本
+	optional int64 currencyVolume = 41;
+	// 总股本
+	optional int64 capitalVolume = 42;
+
+	// ---------------以下为自定义指数专用--------------------
+	//现价
+	optional int64 nowPrice = 43;
+	//涨家数
+	optional int32 RiseVolume = 44;
+	//跌家数
+	optional int32 FallVolume = 45;
+	//现均差
+	optional float nowAvgDiff = 46;
+}

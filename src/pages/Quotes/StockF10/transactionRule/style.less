@@ -1,0 +1,324 @@
+//引入全局样式
+@import "../style";
+
+.F10content {
+  .contentRight {
+    // border: 1px solid @f10-border-color;
+    border-left: 0;
+    overflow-y: auto;
+    flex: 1;
+    .rightList{
+      h2{
+          span{
+            font-size: 12px;
+          }
+      }
+      ul.rule{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        li{
+          p{
+            margin-bottom: 12px;
+            span{
+              color: @f10-color2;
+            }
+          }
+        }
+      }
+      ul.ant-table-pagination.ant-pagination{
+        justify-content: center;
+        float: none;
+      }
+      .floatright{
+        float: right;
+        color:@f10-title-color;
+      }
+      .contentBottom{
+        height: 350px;
+        overflow: auto;
+        margin: 40px 0;
+       padding-left: 110px;
+
+        .ant-timeline-item{
+          position: relative;
+          .sjzlContent{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            padding-top: 3px;
+            .evtTime{
+              width: 80px;
+              min-width: 80px;
+              position: absolute;
+              left: -80px;
+            }
+            .evtName{
+              width: 80px;
+            }
+          }
+        }
+        
+        // ul {
+        //   display: flex;
+        //   flex-direction: column;
+
+        //   li{
+        //     flex: 1;
+        //     line-height: 30px;
+        //     margin:4px 0; 
+        //     display: flex;
+        //     flex-direction: row;
+        //     span{
+        //       width: 60px;
+        //       color:@f10-color;
+        //     }
+        //     .label{
+        //       font-size: 30px;
+        //       vertical-align: -5px;
+        //       width: 20px;
+        //     }
+        //   }
+        // }
+        // ul.ant-timeline{
+        //   display: flex;
+        //   flex-direction: row;
+        //   color: @f10-color;
+        //   height: 40px;
+        //   span{
+        //     line-height: 30px;
+        //     margin-right: 18px;
+        //   }
+        //   li{
+        //     flex: initial;
+        //     .ant-timeline-item-head{
+        //       margin-top: 5px;
+        //     }
+        //   }
+        // }
+      }
+      .newsBulletin{
+        .title{
+          margin-bottom: 10px;
+        }
+        .list{
+          display: flex;
+          flex-direction: row;
+          >div{
+            flex: 1;
+            padding: 0 20px;
+            ul{
+            
+              display: block;
+              li{
+                line-height: 30px;
+                span{
+                  float: right;
+                }
+              }
+              li:hover{
+                background: @f10-border-color;
+              }
+            }
+            a{
+              color: @f10-color4;
+              float: right;
+              margin:10px 0;
+              text-decoration: underline;
+            }
+            a:hover{
+              color: @f10-color4;
+              text-decoration: underline;
+            }
+          }
+         
+        }
+        
+      }
+      .wgcl{
+        ul{
+          display: block;
+          li{
+            line-height: 30px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            span{
+              width: 70px;
+            }
+            p{
+             flex:1;
+            }
+            label{
+              float: right;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .bubble {
+    width: calc(~'100% - 220px');
+    // height: 30px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    text-align: left;
+    font-size: 12px;
+    border-radius: 1px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    // margin: 0 20px 0 10px;
+    display: inline-block;
+    flex:1;
+  }
+  
+  .bubble.bubble_default {
+    background-color:@f10-border-color;
+  }
+  
+  .bubble:after,
+  .bubble:before {
+    position: absolute;
+    top: 10px;
+    border: 6px solid transparent;
+    content: " ";
+    left: -9px;
+  }
+  
+  .bubble.left:after,
+  .bubble.left:before {
+    right: 100%;
+  }
+  
+  .bubble.left:after {
+    border-right-color: @f10-border-color;
+    border-right-width: 4px;
+  }
+
+  
+  .bubble.right:after,
+  .bubble.right:before {
+    left: 100%;
+  }
+  
+  
+  .bubble.right:after {
+    border-left-color: #fff;
+  }
+  .bubble_cont {
+    word-wrap: break-word;
+    word-break: break-all;
+    min-height: 25px;
+  }
+  .plain{
+    line-height: 28px;
+    p{
+      margin: 0px;
+      padding: 0 10px;
+    }
+  }
+
+  .zjlxContent{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    .rightListMain{
+      .legendMain{
+        .labelBox {
+          border: 1px solid @f10-border-color;
+        }
+        .typeActive{
+          border:1px solid #a1211a;
+          background: #a1211a;
+        }
+        .priceActive{
+          height: 2px;
+          border:1px solid #d69f65;
+          background: #d69f65;
+          margin-bottom: 4px;
+        }
+      }
+    }
+    .date{
+      width: 230px;
+    }
+    .dzjy{
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 20px;
+    }
+    .ant-tabs{
+      margin-top: -30px;
+    }
+    .ant-tabs .ant-tabs-bar{
+      margin-left: 230px;
+      margin-bottom: 15px;
+    }
+    .ant-tabs:not(.ant-tabs-vertical) > .ant-tabs-content > .ant-tabs-tabpane{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+  .lhb{
+    .titleDate{ 
+      width: 100px;
+      height: 32px;
+      line-height: 32px;
+      text-align: center;
+      background: @f10-border-color;
+    }
+    .desc{
+        margin-top: 15px;
+        color:  @f10-color;
+      span{
+        margin-right: 25px;
+        label{
+          color:@f10-up;
+          margin-left: 10px;
+        }
+      }
+    }
+    .details{
+      color:  @f10-color;
+      .left{  
+       float: left;
+       height: 30px;
+       line-height: 30px;
+      }
+      .right{
+        float: right;
+        height: 30px;
+        line-height: 30px;
+        span{
+            margin-left: 10px; 
+          label{
+            margin-left: 10px; 
+          }
+          .up{
+            color: @f10-up;
+          }
+          .down{
+            color: @f10-down;
+          }
+        }
+      }
+    }
+  }
+  .margin30{
+    margin: 30px;
+    overflow: hidden;
+  }
+  img{
+    width: 100%;
+  }
+
+  .active{
+    background: @font-tab-active;
+    color:@font-color-base;
+    border-radius: 3px;
+  }
+}

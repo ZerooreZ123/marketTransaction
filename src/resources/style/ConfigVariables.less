@@ -1,0 +1,21 @@
+/* *************
+ * css配置文件
+ * ************/
+@leftWidth: 80px;
+@mainTopHeight: 30%;
+@mainMidHeight: 40%;
+@mainBotHeight: 30%;
+
+/* ****************
+ * 生成弹性布局
+ * example:
+ *   getflex();
+ *   getflex(center; center; row);
+ *   getflex(center; @main: column);
+ * ***************/
+.getflex(@row: flex-start; @col: flex-start; @main: row) {
+  display: flex;
+  justify-content: @row;
+  flex-direction: @main;
+  align-items: @col;
+}

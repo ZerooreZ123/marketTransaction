@@ -1,0 +1,36 @@
+package com.xinyu.unidata.protocbuf;
+
+import "SnapBody.proto";
+import "Security.proto";
+
+option java_package = "com.xinyu.unidata.protocbuf";
+option java_outer_classname = "ComprehensiveProto";
+
+// 综合排名
+message ComprehensiveRank{
+
+	required string exchange = 1;
+	//时间格式HHmmssSSS
+	required string code = 2;
+
+	// 涨幅
+	repeated SimpleSnapBody netChangeRatioUpperRank = 3;
+	// 跌幅
+	repeated SimpleSnapBody netChangeRatioDownRank = 4;
+	// 涨速
+	repeated SimpleSnapBody speedRatioUpperRank = 5;
+	// 跌速
+	repeated SimpleSnapBody speedRatioDownRank = 6;
+}
+
+// 简易报价
+message SimpleSnapBody
+{
+	required StockBasic stockBasic = 1;
+	// 今收盘价
+	optional float close = 2;
+	// 涨跌幅
+	optional float netChangeRatio = 3;
+	// 涨跌速
+	optional float speedRatio = 4;
+}

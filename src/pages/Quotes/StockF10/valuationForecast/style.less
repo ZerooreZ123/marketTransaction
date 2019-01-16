@@ -1,0 +1,71 @@
+//引入全局样式
+@import "../style";
+
+.gzyc{
+  .rightListMain{
+    display: flex;
+    flex-direction: row;
+    .left{
+      flex:1;
+    }
+  }
+  .huizong{
+    display: flex;
+    flex-direction: row;
+    margin: 30px 0;
+    padding-bottom: 30px;
+    border-bottom: 1px solid @f10-border-color;
+
+    .left{
+      margin-right: 160px;
+      flex: 1;
+    }
+    .right{
+      flex: 1;
+    }
+    span{
+      float: right;
+    }
+    table{
+      border: 1px solid @f10-border-color;
+      width: 100%;
+      margin-top: 10px;
+      td,th{
+        height: 38px;
+        line-height: 38px;
+        text-align: center;
+      }
+      thead{
+        background: @f10-border-color;
+      }
+      tbody{
+          tr{
+            td{
+              border: 1px solid @f10-border-color;
+              border-collapse: collapse;
+            }
+          }
+      }
+    }
+  }
+  .rightList{
+    ul{
+      width:100%;
+      .flex-wrap-between{
+        width:100%;
+        display:flex;
+        justify-content: space-between;
+        line-height:30px;
+        &:hover{
+          // background: #1d2c53;
+        }
+      }
+    }
+    a{
+      float:right;
+      line-height: 30px;
+      text-decoration: underline;
+    }
+  }
+}
+

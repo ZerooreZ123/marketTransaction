@@ -1,0 +1,53 @@
+//引入全局样式
+@import "../style";
+
+.getflex(@row: flex-start; @col: flex-start; @main: row) {
+  /* ****************
+   * 生成弹性布局
+   * example:
+   *   getflex();
+   *   getflex(center; center; row);
+   *   getflex(center; @main: column);
+   * ***************/
+  display: flex;
+  justify-content: @row;
+  flex-direction: @main;
+  align-items: @col;
+}
+
+.percentage{
+  .getflex(@main: column);
+  >div:nth-child(1){
+    width: 100%;
+    .getflex(flex-end);
+  }
+  >div:nth-child(2){
+    width: 100%;
+    height: 5px;
+    background: #183469;
+  }
+}
+.f12News{
+  width: 100%;
+  font-size: 14px;
+  line-height: 30px;
+  .getflex(space-between);
+}
+.f12News:hover{
+  background: @f10-border-color;  
+}
+.more{
+  margin-top: 12px;
+  width: 100%;
+  text-decoration: underline;
+  .getflex(flex-end);
+}
+.rightListMain{
+  .tableMain{
+    .tableList{
+  // overflow: auto;
+  // height: 500px
+}
+  }
+}
+

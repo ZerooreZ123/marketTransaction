@@ -1,0 +1,79 @@
+@import "../../resources/style/ConfigVariables";
+
+@keyBoardWidth: 232px;
+@stockCodeWidth: 63px;
+@exchangeWidth: 72px;
+@stockIconWidth: 18px;
+@stockNameWidth: @keyBoardWidth - @stockCodeWidth - @exchangeWidth - @stockIconWidth;
+
+.KeyBoardOrigin{
+  right: 25px;
+  bottom: 25px;
+  position: absolute;
+  width: @keyBoardWidth;
+  border:1px solid  @border-color-base;
+  z-index: 1000;
+  .searchPanel{
+    width: 100%;
+    background:  @background-color-tab;
+    .searchTip{
+      padding: 2.5px 10px;
+    }
+    .notSearchTip{
+      padding: 2.5px 10px;
+    }
+    .searchItem{
+      width: 100%;
+      .getflex(space-between; center);
+      padding: 2.5px 10px;
+      border-bottom: 1px dashed  @border-color-base;
+      box-sizing: border-box;
+      .stockCode{
+        width: @stockCodeWidth;
+      }
+      .exchange{
+        width: @exchangeWidth;
+      }
+      .stockName{
+        width: @stockNameWidth;
+      }
+      .stockIcon{
+        width: @stockIconWidth;
+        text-align: right;
+      }
+      div{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    .select{
+      background: @font-color-list-active;
+      border-bottom: 1px solid @border-select-color;
+      box-sizing: border-box;
+    }
+    .keyBoardTool{
+      color: #eaea82 !important;
+    }
+    .searchItem:hover{
+      background: @font-color-list-active;
+      border-bottom: 1px solid @border-select-color;
+      box-sizing: border-box;
+    }
+  }
+  .ant-input-affix-wrapper{
+    background-color: @background-color-tab;;
+    border: 1px solid  @border-color-base;
+    z-index: 100;
+    width: @keyBoardWidth;
+    .ant-input{
+      background-color: @background-color-tab;;
+      color: #ccc;
+      padding-right: 20px;
+    }
+    .ant-input-suffix{
+      color: #ccc;
+      right: 5px;
+    }
+  }
+}

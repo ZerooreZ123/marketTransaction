@@ -1,0 +1,29 @@
+package com.xinyu.unidata.protocbuf;
+
+option java_package = "com.xinyu.unidata.protocbuf";
+option java_outer_classname = "LiveNewsProto";
+
+// 快讯直播
+message LiveNews{
+	// 日期格式
+	optional string id = 1;
+
+	// 发布日期
+	optional string pubdate = 2;
+
+	// 发布时间
+	optional string pubtime = 3;
+
+	// 媒体出处
+	optional string medname = 4;
+
+	// 标题
+	optional string title = 5;
+
+	// 内容
+	optional string content = 6;
+
+	// 定位串
+	optional string posid = 7;
+
+}

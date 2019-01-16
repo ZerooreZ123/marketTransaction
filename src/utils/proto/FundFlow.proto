@@ -1,0 +1,37 @@
+package com.xinyu.unidata.protocbuf;
+
+option java_package = "com.xinyu.unidata.protocbuf";
+option java_outer_classname = "FundFlowProto";
+
+// 资金流向 五日也使用该结构
+message FundFlow{
+	//日期格式yyyyMMdd
+	required int32 date = 1;
+	//时间格式HHmmssSSS
+	required int32 time = 2;
+
+	//大单流入资金
+	optional int64 bigInflows = 3;
+	//大单流出资金
+	optional int64 bigOutflows = 4;
+	// 大单净流入
+	optional int64 bigNetInflows = 5;
+	// 中单流入资金
+	optional int64 middleInflows = 6;
+	// 中单流出资金
+	optional int64 middleOutflows = 7;
+	// 中单净流入
+	optional int64 middleNetInflows = 8;
+	// 小单流入资金
+	optional int64 smallInflows = 9;
+	// 小单流出资金
+	optional int64 smallOutflows = 10;
+	// 小单净流入
+	optional int64 smallNetInflows = 11;
+	//总计流入资金
+	optional int64 sumInflows = 12;
+	//总计流出资金
+	optional int64 sumOutflows = 13;
+	// 总计净流入
+	optional int64 sumNetInflows = 14;
+}

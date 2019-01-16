@@ -1,0 +1,101 @@
+// See README.txt for information and build instructions.
+
+package com.xinyu.unidata.protocbuf;
+
+option java_package = "com.xinyu.unidata.protocbuf";
+option java_outer_classname = "HQProtos";
+// 原始行情数据 convert层输出
+message HQ
+{
+  //日期格式yyyyMMdd
+  required int32 date = 1;
+  //时间格式HHmmssSSS
+  required int32 time = 2;
+
+  //交易所
+  optional string exchange = 3;
+  //证券代码
+  optional string symbol = 4;
+  //uuid
+  optional string uuid = 5;
+  //前收盘价
+  optional int64 preClose = 6;
+  //最高价
+  optional int64 high = 7;
+  //开盘价
+  optional int64 open = 8;
+  //最低价
+  optional int64 low = 9;
+  //收盘价
+  optional int64 close = 10;
+  //成交量
+  optional int64 volume = 11;
+  //现量
+  optional int64 nowVol = 12;
+ 	//成交金额
+  optional int64 amount = 13;
+  
+  
+  //买盘
+  message Bid {
+    required int64 price = 1;
+    optional int64 volume = 2;
+  }
+  //卖盘
+  message Ask {
+    required int64 price = 1;
+    optional int64 volume = 2;
+  }
+
+  
+ //
+  repeated Bid bid = 14; 
+ //
+  repeated Ask ask = 15;
+
+  
+	//涨幅
+  optional int64 netChange = 16;
+  
+  //涨跌幅
+  optional float netChangeRatio = 17;
+  //振幅
+  optional float amplitudeRatio = 18;
+  
+  // ------- 期货专属 -------
+  //持仓量
+  optional int32 ccl = 19;
+  //成交笔数，深圳市场有值
+  optional int32 cjbs = 20;
+  // 基金净值
+  optional int64 iopv = 21;
+  
+  //52最高
+  optional int64 highFor52Week = 22;
+  //52最低
+  optional int64 lowFor52Week = 23;
+
+  // 上次结算价
+  optional int64 preSettlementPrice = 24;
+  // 昨持仓
+  optional int64 preOpenInterest = 25;
+  // 持仓量
+  optional int64 openInterest = 26;
+  // 结算价
+   optional int64 settlementPrice = 27;
+  // 涨停价
+  optional int64 upperLimitPrice= 28;
+  // 跌停价
+  optional int64 lowerLimitPrice= 29;
+  // 昨虚实度
+  optional float preDelta= 30;
+  // 今虚实度
+  optional float currDelta = 31;
+  // 当日均价
+  optional int64 avgPrice = 32;
+  // 持仓量变化
+  optional int32 changeOpenInterest = 33;
+//  optional int32 renewMarket = 34;
+}
+
+

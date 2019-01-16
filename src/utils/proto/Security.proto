@@ -1,0 +1,74 @@
+// See README.txt for information and build instructions.
+
+package com.xinyu.unidata.protocbuf;
+
+option java_package = "com.xinyu.unidata.protocbuf";
+option java_outer_classname = "SecurityProtos";
+
+// 证券信息
+message StockBasic {
+  //交易所
+  required string exchange = 1;
+  //证券代码
+  required string stockCode = 2;
+  //证券名称
+  optional string stockName = 3;
+  //状态
+  optional int32 stockStatus = 4;
+  //0:股票 1：期货 2：期权 3：外汇，4指数，5：基金、6:债券、7、认购权证、8、认沽权证、9 牛证、10 熊证 11 其他12 上海b股 13 深圳b股
+  optional int32 asset = 5;
+  // 证券分类 0:
+optional string ccyCode = 6;
+  // 每手股数
+  optional int32 unit = 7;
+  // 代码数值
+  optional int32 codeNumber = 9;
+  // uuid
+  optional string uuid = 10;
+  // 地区
+  optional string area = 11;
+  // 行业
+  optional string industry = 12;
+  // 价格变化单位
+  optional float priceStep = 13;
+  // 次新股标志
+  optional int32 subnew = 14;
+  // 融资融券标志
+  optional int32 tradflag = 15;
+  // 小数点位数
+  optional int32 digit = 16;
+
+}
+
+message CodeList 
+{
+	required string exchange = 1;
+	repeated StockBasic security = 2;
+}
+
+message PreandAfterMarket
+{
+	//日期格式yyyyMMdd
+	required int32 date = 1;
+	//时间格式HHmmssSSS
+  required int32 time = 2;
+  //股票基本信息
+	optional StockBasic stockBasic = 3;
+	//当前价
+	optional float close = 4;
+	//涨跌
+	optional float netChange = 5;
+	//涨跌幅 
+	optional float netChangeRatio = 6;
+	enum DataType
+	{
+      		//盘前
+      		PREMARKET = 0;
+      		//盘后
+      		AFTERMARKET = 1;
+	}
+	
+	required DataType dataType = 7;
+	//量
+	optional int32 nowVol = 8;
+}

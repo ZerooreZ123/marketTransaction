@@ -1,0 +1,63 @@
+@import "../../resources/style/ConfigVariables";
+
+.panelOrigin_su{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border: 1px solid blue;
+  .getflex(@main: column);
+  .panelTitle{
+    width: 100%;
+    height: 32px;
+    color: #fff;
+    background: blue;
+    padding-left: 10px;
+    .getflex(flex-start; center);
+  }
+  .panelSmallTitle{
+    width: 100%;
+    height: 28px;
+    margin: 6px 0 12px 0;
+    .getflex(center; center);
+  }
+  .handleBody{
+    width: 100%;
+    .getflex(space-between; center);
+    padding: 2px;
+    .ant-switch{
+      background-color: green;
+    }
+    .ant-switch-checked {
+      background-color: #1890ff;
+    }
+  }
+  .panelBody{
+    padding: 1px;
+    width: 100%;
+    overflow: auto;
+    height: calc(~'100% - 32px');
+    background: #fff;
+    .lineBox{
+      .getflex();
+      .itemBox{
+        padding: 2px;
+        width: 33.33%;
+        .itemBody{
+          // height: calc(~'100% - 28px');
+          height: 60px;
+          background: rgba(0, 0, 0, .2);
+          .getflex(center; center);
+          color: #7d8ba8;
+        }
+        .itemTitle{
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          width: 100%;
+          overflow: hidden;
+          text-align: center;
+          color: #7d8ba8;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,176 @@
+//引入全局样式
+@import "../style";
+
+.stockF10 {
+
+
+    .F10content {
+
+      .contentRightGsjs {
+        // margin-right: 32%;
+        // padding-right: 25px;
+    padding-left: 25px;
+        flex: 1;
+        overflow: auto;
+        // border: 1px solid @border_table_color;
+        border-left: 0;
+        padding-right: 30px;
+        .rightList {
+          border-bottom: 1px solid @f10-border-color;
+          padding-bottom: 35px;
+          overflow: hidden;
+          .gsgk{
+            line-height: 30px;
+            text-indent: 2em;
+          }
+          .ggjs{
+            display: flex;
+            margin-bottom: 20px;
+            .jobLevel{
+              flex: 1;
+
+            }
+            .jobName{
+              flex:6;
+              display: flex;
+              >ul{
+                flex: 1;
+                overflow: hidden;
+                li{
+                  margin-bottom: 10px;
+                  width: 33%;
+                  float: left;
+                  span:first-child{
+                    margin-right: 20px;
+                  }
+                }
+                
+
+              }
+            }
+          }
+          .dzjy{
+            .ant-tabs.ant-tabs-card  > .ant-tabs-bar .ant-tabs-tab{
+              margin-left: 0;
+              margin-right: 20px;
+            }
+            .contentTable:nth-child(2n+1){
+              background-color:#1d2c53;
+            }
+            .contentTable{
+              display: flex;
+              color: @f10-color;
+              .ygName{
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items:center;/*垂直居中*/
+                justify-content: center;/*水平居中*/
+                ul{
+                  display: flex;
+                  li{
+                    overflow: hidden;
+                    span{
+                      float: left;
+                    }
+                  }
+                }
+              }
+              .gsName{
+                flex:4;
+                ul{
+                  li{
+                    display: flex;
+                    overflow: hidden;
+                    .ptcom{
+                      flex: 4;
+                      // float: left;
+                    }
+                    .ptpost{
+                      flex: 1;
+                      // float: right;
+                    }
+                  }
+                }
+              }
+              li,span{
+                padding: 9px;
+              }
+              .contentTableTh{
+                background-color:#2c4a90;
+              }
+            }
+          }
+          .fxls{
+            display: flex;
+            flex-direction: column;
+            .fxlsTop{
+              >div{
+                display: flex;
+                padding-bottom: 10px;
+                .title{
+                  flex: 1;
+                }
+                .content{
+                  flex: 5;
+                }
+              }
+            }
+            .fxlsBottom{
+              text-indent: 26px;
+            }
+          }
+
+          h2 {
+            font-size: 14px;
+            font-weight: normal;
+            color: @f10-title-color;
+            line-height: 60px;
+          }
+          .floatright{
+            float: right;
+            color:@f10-title-color;
+          }
+          .picshow{
+            img{
+              display: block;
+              width: 100%;
+            }
+          }
+        }
+        
+      }
+      .contentFlex{
+        width:32%;
+        padding: 20px;
+        border-left: 1px solid @f10-border-color;
+        margin-left: 2px;
+        .logo{
+          width: 100%;
+          margin: 40px 0;
+          padding: 0 40px;
+          text-align: center;
+          img{
+            height: 60px;
+            width: auto;
+            display: inline-block;
+          }
+        }
+       .fxlsTop{
+        >div{
+          display: flex;
+          padding-bottom: 10px;
+          .title{
+            flex: 2;
+            text-align: right;
+          }
+          .content{
+            flex: 7;
+            margin-left: 30px;
+          }
+        }
+       }
+      }
+    }
+  
+}

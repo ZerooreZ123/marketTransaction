@@ -1,0 +1,40 @@
+  {dataIndex: 'order', title: '序号', isFixed: true, width: 60},
+  {dataIndex: 'stockName', title: '名称',  isFixed: true, isReload: true, width: 80},
+  {dataIndex: 'stockCode', title: '代码', isFixed: true, width: 60},
+  {dataIndex: 'netChangeRatio', title: '涨幅%', isSorter: true},// Y,
+  {dataIndex: 'close', title: '现价'}, // Y
+  {dataIndex: 'netChange', title: '涨跌', isSorter: true},// Y, 0
+  {dataIndex: 'bid1Price', title: '买价'},// Y
+  {dataIndex: 'ask1Price', title: '卖价'},// Y
+  {dataIndex: 'nowVolume', title: '现量', isSorter: true},// N
+  {dataIndex: 'speedRatio', title: '涨速'}, // Y, 0
+  {dataIndex: 'turnoverRatio', title: '换手%'},
+  {dataIndex: 'open', title: '今开'}, // Y
+  {dataIndex: 'high', title: '最高', isSorter: true},// Y
+  {dataIndex: 'low', title: '最低', isSorter: true},// Y
+  {dataIndex: 'preClose', title: '昨收'},
+  {dataIndex: 'peRatio', title: '市盈率'},
+  {dataIndex: 'capitalization', title: '总市值'},
+  {dataIndex: 'volumeRatio', title: '量比'},
+  {dataIndex: 'amplitudeRatio', title: '振幅%'},
+  {dataIndex: 'avgPrice', title: '均价'}, // Y
+  {dataIndex: 'date', title: '最新日期', isSorter: true},//
+  {dataIndex: 'innerVolume', title: '内盘'}, // N
+  {dataIndex: 'outerVolume', title: '外盘'}, // N
+  {dataIndex: 'volume', title: '成交总量', isSorter: true},//
+  {dataIndex: 'amount', title: '成交金额', isSorter: true},//
+  {dataIndex: 'currencyValue', title: '流通市值'},
+  {dataIndex: 'capitalVolume', title: '总股本'},
+  {dataIndex: 'currencyVolume', title: '流通股本'},
+  {dataIndex: 'pbRatio', title: '市净率'},
+  {dataIndex: 'psRatio', title: '市销率'},
+
+  {dataIndex: 'quoteRatio', title: '委比'}, // Y, 0
+  {dataIndex: 'quoteMargin', title: '委差'}, // Y, 0
+  {dataIndex: 'dealCount', title: '成交笔数'},
+  {dataIndex: 'bigInflows', title: '大资流入'},
+  {dataIndex: 'bigOutflows', title: '大资流出'},
+  {dataIndex: 'bigNetflows', title: '大资净流入'},
+  {dataIndex: 'sumInflows', title: '总资流入'},
+  {dataIndex: 'sumOutflows', title: '总资流出'},
+  {dataIndex: 'sumNetflows', title: '总资净流入'},

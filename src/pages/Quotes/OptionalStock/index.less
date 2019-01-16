@@ -1,0 +1,68 @@
+@import "../../../resources/style/ConfigVariables";
+.homeContent .optionalStock .optionalTop {
+  flex: 1.2;
+}
+// .optionalTop{
+// width: 100%;
+// }
+.optionalStock {
+  // width: 100%;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  width: 100%;
+  padding-right: 1px;
+  
+
+  .optionalTop {
+    height: 54.5%;
+    border: 1px solid @border-color-base;
+    margin-bottom: 1px;
+    // margin: 1px;
+  }
+  .optionalBottom {
+    height: 44.5%;
+    display: flex;
+    margin-top: 1px;
+    // padding: 0 1px 4px 1px;
+    .flineChart {
+      flex: 2;
+      .flineMain {
+        width:100%;
+        height: 100%;
+        border: 1px solid @border-color-base;
+      }
+    }
+    .klineChartBox {
+      flex: 2;
+      margin-left: 2px;
+      .klineMain {
+        height: 100%;
+        width:100%;
+        border: 1px solid @border-color-base;
+      }
+    }
+    .fiveContent {
+      flex: 1;
+      min-width: 340px;
+      // margin: 0 2px;
+      margin-left: 2px;
+      .fiveMain {
+        height: 100%;
+        border: 1px solid @border-color-base;
+      }
+    }
+  }
+  ._block{
+    display: block;
+  }
+  ._none{
+    display: none;
+  }
+  .ant-tabs .ant-tabs-bar {
+    margin-bottom: 0;
+    border: 0;
+    border-bottom: 1px solid  @border-color-base;
+    padding-bottom: 1px;
+  }
+}

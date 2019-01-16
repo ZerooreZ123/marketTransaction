@@ -1,0 +1,368 @@
+//@import "~antd/dist/antd.less";
+//@import "ConfigVariables";
+@import "./ConfigVariables.less";
+
+//可以用自己的colors变量覆盖antd的默认样式变量,
+//默认样式表参考antd_css.md
+
+// -------- Colors -----------
+//@primary-color : @blue-6;
+//@info-color : @blue-6;
+//@success-color : @green-6;
+//@processing-color : @primary-color;
+//@error-color : @red-6;
+//@highlight-color : @red-6;
+//@warning-color : @gold-6;
+//@normal-color : #d9d9d9;
+
+//@btn-font-weight : 400;
+//@btn-primary-color : @background-color-base;
+//@btn-primary-bg : #000;
+//@btn-default-bg : red;
+//input
+//@input-color : @background-color-base;
+//@input-border-color : @background-color-base;
+//@input-bg : black;
+
+/* antdCover开始 */
+
+.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+  background: @background-color-base;
+  line-height: 28px ;
+  font-weight: bold;
+}
+.ant-tabs .ant-tabs-nav-scroll {
+  height: 28px;
+}
+.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-nav-container {
+  height: 29px ;
+}
+.ant-tabs {
+  display: flex;
+  flex-direction: column;
+}
+.ant-table-thead > tr > th {
+  background: @background-color-base;
+  color: @font-color-base;
+  
+}
+.ant-table-small
+  > .ant-table-content
+  > .ant-table-scroll
+  > .ant-table-header
+  > table
+  > .ant-table-thead
+  > tr
+  > th,
+.ant-table-small
+  > .ant-table-content
+  > .ant-table-scroll
+  > .ant-table-body
+  > table
+  > .ant-table-tbody
+  > tr
+  > td {
+  padding: 4px 8px;
+  text-align: right;
+  color:@font-color-base;
+  border-right:1px solid @border_table_color;
+  border-bottom:1px solid @border_table_color;
+}
+.ant-table-small
+  > .ant-table-content
+  > .ant-table-scroll
+  > .ant-table-body
+  > table
+  > .ant-table-tbody
+  > tr
+  > td:first-child{
+    color:@font-gray-color;
+    cursor: pointer;
+    max-width: 50px;
+  }
+  .ant-table-small
+  > .ant-table-content
+  > .ant-table-scroll
+  > .ant-table-body
+  > table
+  > .ant-table-tbody
+  > tr
+  > td{
+    padding-right: 15px;
+  }
+.ant-table-small
+  > .ant-table-content
+  > .ant-table-scroll
+  > .ant-table-header
+  > table
+  > .ant-table-thead
+  > tr
+  > th{
+    color: @font-tab-title-color;
+    border-right:0;
+    border-bottom:1px solid @border_table_color;
+    background: @background-color-tab;
+    border-right:1px solid @border_table_color;
+
+  }
+.ant-table-fixed-header .ant-table-scroll .ant-table-header{
+  color:@font-tab-title-color;
+  background: @background-color-tab;
+}
+// .ant-table-row-hover {
+//   background: @font-up-color;
+// }
+.ant-table-thead > tr.ant-table-row-hover > td,
+.ant-table-tbody > tr.ant-table-row-hover > td,
+.ant-table-thead > tr:hover > td,
+.ant-table-tbody > tr:hover > td {
+  background: @font-color-list-active;
+  color:@font-color-base;
+  cursor: pointer;
+  border-right: 1px solid @font-color-list-active!important;
+  border-bottom: 1px solid @font-color-list-active!important;
+}
+.ant-table-tbody > tr.ant-table-row-selected td {
+  background: @font-color-list-active;
+  color:@font-color-base;
+  border-right: 1px solid @font-color-list-active!important;
+  border-bottom: 1px solid @font-color-list-active!important;
+  cursor: pointer;
+}
+.ant-table-small {
+  border: 0;
+  color: @font-color-base;
+}
+.ant-table-column-sorter {
+  margin-left: 0;
+  color:@table-column-sorter-color;
+}
+.ant-table-column-sorter-up,
+.ant-table-column-sorter-down {
+  height: 4px;
+}
+.ant-table-thead > tr > th.ant-table-column-has-filters {
+  color: @font-color-base;
+  font-family: @family_w3;
+}
+.ant-table .ant-table-tbody > tr > td {
+  font-family: @family_w3;
+  border-right: 1px solid @border_table_color;
+  border-bottom: 1px solid @border_table_color;
+  border-collapse: collapse;
+}
+.ant-table-thead > tr:first-child > th:first-child {
+  border-top-left-radius: 0;
+}
+.ant-tabs {
+  width: 100%;
+  .ant-tabs-nav-scroll {
+    height: 28px;
+  }
+  .ant-tabs-bar {
+    margin-bottom: 0;
+    border: 1px solid @border-color-base;
+    // border-bottom:0;
+    padding-bottom: 1px;
+    background: @background-color-base;
+  }
+}
+
+.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-nav-container {
+  height: 31px;
+}
+.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+  color: @font-color-base;
+  padding: 0 10px ;
+  margin: 0 ;
+  line-height: 24px;
+  height: 24px;
+  border: none ;
+  border-radius: 0 ;
+  margin-left:3px;
+  margin-top: 1px;
+}
+.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active {
+  background: @font-tab-active!important;
+  color: @font-table-active-color!important;
+  line-height: 24px;
+  margin-left:3px;
+  margin-top: 1px;
+}
+.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab:after {
+  content: "";
+  position: absolute;
+  height: 10px;
+  border-right: 1px solid @border-color-base;
+  left: 0;
+  top: 10px;
+}
+.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab:nth-child(2):after {
+  display: none;
+}
+.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active:after {
+  display: none;
+}
+.ant-table .ant-table-thead > tr > th.ant-table-column-sort {
+  // background: @font-up-color;
+  color: @font-tab-title-color;
+
+}
+.ant-table .ant-table-column-sorter-down.on .anticon-caret-down,
+.ant-table .ant-table-column-sorter-up.on .anticon-caret-up {
+  color: @font-table-active-color;
+}
+.ant-table .ant-table-thead > tr:first-child > th:last-child {
+  border-radius: 0;
+}
+.ant-table-small > .ant-table-content> .ant-table-body> table{
+  padding: 0;
+}
+.ant-table .ant-table-column-sorter-down.on .anticon-caret-down, .ant-table .ant-table-column-sorter-up.on .anticon-caret-up{
+  color:@table-column-sorter-color;
+}
+.ant-table .ant-table-thead > tr > th.ant-table-column-sort{
+  color:@font-color-base;
+}
+
+.ant-table-fixed-header .ant-table-scroll .ant-table-header{
+  overflow: hidden;
+  // height: 36px;
+}
+.ant-table-fixed-header > .ant-table-content > .ant-table-scroll > .ant-table-body{
+  background: @background-color-plate;
+}
+.ant-table-small > .ant-table-content .ant-table-header{
+  background: @background-color-plate;
+  margin-bottom: -9px;
+  margin-top: 1px;
+}
+.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-nav-container{
+  background: @background-color-tab;
+  height: 28px;
+}
+.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab{
+  background: @background-color-tab;
+  color:@font-tab-title-color;
+}
+.ant-table-fixed-header > .ant-table-content > .ant-table-scroll > .ant-table-body{
+  border-top:@border-color-base;
+}
+.ant-tabs-nav .ant-tabs-tab:hover {
+  color: #fff;
+}
+.ant-tabs-nav .ant-tabs-tab:active {
+  color: #fff;
+}
+.ant-table-placeholder{
+  background: transparent;
+  border-bottom: none;
+  color:@font-color-base;
+}
+.ant-dropdown{
+  left: 91px;
+  top: 832px;
+}
+.ant-dropdown-menu{
+  background-color: @background-color-tab;
+  border-radius: 0;
+  li{
+    color: @font-color-base;
+  }
+}
+.ant-dropdown-menu-item:hover,.ant-dropdown-menu-item-active{
+  background-color: @font-color-list-active;
+}
+.ant-table-small > .ant-table-content > .ant-table-scroll > .ant-table-header > table > .ant-table-thead > tr > th:first-child{
+  width: 50px;
+}
+.newsModal{
+  .ant-modal{
+    width:750px!important;
+    height: 80%;
+    top:10%;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 4px;
+    font-size: @font-size-base;
+    color: @background-color-base;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 0;
+  }
+  .ant-modal-footer{
+    display: none;
+  }
+  .ant-modal-content{
+    height: 100%;
+    box-shadow: 0 0 ;
+  }
+  .ant-modal-header{
+    padding: 3px 10px;
+    background: @background-color-tab;
+    .ant-modal-title{
+      color: @font-color-base;
+      font-size: 12px;
+    }
+  }
+  .ant-modal-close{
+    top: -13px;
+    color: @font-color-base;
+  }
+  .ant-modal .ant-modal-content{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .ant-modal-body{
+    flex: 1;
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+  }
+}
+.ant-timeline-item{
+  color: @font-color-base;
+  padding: 0 0 10px;
+}
+
+.ant-tabs-nav-container{
+  border-bottom: 1px solid #020c2a;
+}
+.ant-modal-mask{
+  background:rgba(2, 8, 27, 0.8);
+}
+.ant-modal-content{
+  background:@background-color-tab;
+}
+.ant-modal-body{
+  background: @color-write;
+}
+/* antdCover结束 */
+.ant-spin-dot-spin {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-animation: antRotate 2.2s infinite linear;
+  animation: antRotate 2.2s infinite linear;
+}
+.ant-pagination-jump-prev:after, .ant-pagination-jump-next:after {
+    content: "\2022\2022\2022";
+    display: block;
+    letter-spacing: 2px;
+    color:  @font-color-base;
+    text-align: center;
+}
+.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab{
+  border-right: 1px solid @border-tab-right;
+}
+.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab:after {
+  content: "";
+  position: absolute;
+  height: 10px;
+  border-right:0;
+  left: 0;
+  top: 10px;
+}
+.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active,.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+  margin-left: 0px;
+}

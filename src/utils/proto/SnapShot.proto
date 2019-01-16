@@ -1,0 +1,108 @@
+package com.xinyu.unidata.protocbuf;
+
+import "Security.proto";
+
+option java_package = "com.xinyu.unidata.protocbuf";
+option java_outer_classname = "SnapShotProto";
+
+// 盘口数据
+
+message SnapShot{
+	// 日期格式 yyyyMMdd
+	required int32 date = 1;
+	// 时间格式 HHmmssSSS
+	required int32 time = 2;
+
+	// 股票信息
+	required StockBasic stockBasic = 3;
+	
+	// 昨收盘价
+	optional int64 preClose = 4;
+	// 最高价
+	optional int64 high = 5;
+	// 开盘价
+	optional int64 open = 6;
+	// 最低价
+	optional int64 low = 7;
+	// 今收盘价
+	optional int64 close = 8;
+	
+	// 成交总量 (股)
+	optional int64 volume = 9;
+	// 现量 (当前交易的成交量, 单位: 股)
+	optional int64 nowVol = 10;
+	// 成交金额 (元)
+	optional int64 amount = 11;
+	
+	message Bid {
+		required int64 price = 1;
+		optional int64 volume = 2;
+	}
+	message Ask {
+		required int64 price = 1;
+		optional int64 volume = 2;
+	}
+	// 买10档
+	repeated Bid bid = 12;
+	// 卖10档
+	repeated Ask ask = 13;
+	
+	// 涨跌
+	optional int64 netChange = 14;
+	// 涨跌幅
+	optional float netChangeRatio = 15;
+	// 振幅
+	optional float amplitudeRatio = 16;
+	// 换手率
+	optional float turnoverRatio = 17;
+	
+	// 内盘
+	optional int64 inside= 18;
+	// 外盘
+	optional int64 outside = 19;
+	
+	// 持仓量
+	optional int32 ccl = 20;
+	
+	// 流通市值
+	optional int64 currencyValue= 21;
+	// 总市值
+	optional int64 capitalization = 22;
+	
+	// 市盈率
+	optional float peratio = 23;
+	// 量比
+	optional float volumeRatio = 24;
+	// 委比
+	optional float weibiRatio = 25;
+	
+	// 相关行业
+	repeated string industryList = 26;
+	
+	// 市净率
+	optional float bvRatio = 27;
+	// 市销率
+	optional float psRatio = 28;
+	
+	// 成交笔数
+	optional int32 dealCount = 29;
+		
+	// 52周高
+	optional int64 weekHigh = 30;
+	// 52周低
+	optional int64 weekLow = 31;
+	
+	// 涨家数
+	optional int32 riseNum = 32;
+	// 平家数
+	optional int32 fairNum = 33;
+	// 跌家数
+	optional int32 fallNum = 34;
+	// 均价
+	optional int64 avgPrice = 35;
+	// 涨停价
+	optional int64 highLimit = 36;
+	// 跌停价
+	optional int64 downLimit = 37;
+
+}

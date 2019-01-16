@@ -1,0 +1,9 @@
+import { combineReducers } from 'redux';
+// import { Route } from 'react-router';
+// import ts from '../components/others/Test/reducer';
+import login from '../components/features/Login/reducer';
+export default combineReducers({
+    // router: routerReducer,
+    //集成所有reducer，通过定义的状态名称到connect高阶组件中的参数函数中访问访问引入的reducer；
+    login:login
+})

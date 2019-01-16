@@ -1,0 +1,71 @@
+@import "../../../resources/style/ConfigVariables";
+
+.index-setting{
+  position: fixed;
+  width: 450px;
+  height: 350px;
+  z-index: 15;
+  left: calc(~'50% - 250px');
+  top: calc(~'50% - 200px');
+  border-radius: 3px 3px 0 0;
+  background: #fafafa;
+  color: #838383;
+  .index-setting-title{
+    border-bottom: none;
+    text-align: center;
+    border-radius: 3px 3px 0 0;
+    height: 28px;
+    position: relative;
+    background-color: #424e6b;
+    padding: 0 10px;
+    .getflex(space-between; center);
+    h1{
+      color: white;
+      line-height: 28px;
+      font-size: 12px;
+      height: 100%;
+      text-align: left;
+      padding: 0;
+      margin: 0;
+    }
+    .closePanel{
+      color: white;
+    }
+  }
+  .index-setting-footer{
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    height: 36px;
+    background: #ccc;
+    width: 100%;
+    .getflex(flex-end; center);
+    button{
+      margin-right: 10px;
+    }
+  }
+  .index-setting-table{
+    width: 100%;
+    margin: 10px 0;
+    tr{
+      vertical-align: middle;
+      th, td{
+        text-align: center;
+        width: 25%;
+        .ant-input{
+          width: 80%;
+        }
+      }
+      .ant-checkbox-wrapper{
+        width: 60%;
+        text-align: left;
+        white-space: nowrap;
+      }
+      .selectColor{
+        width: 25px;
+        height: 25px;
+        display: inline-block;
+      }
+    }
+  }
+}

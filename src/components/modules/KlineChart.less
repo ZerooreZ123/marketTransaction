@@ -1,0 +1,224 @@
+@import "../../resources/style/ConfigVariables";
+
+.reinstatement-option{
+  background: @background-color-plate;
+  border: 1px solid @border-color-base;
+  li{
+    .getflex(center; center);
+    padding: 3px 0 3px 0;
+    color: #ccc;
+  }
+  li.ant-select-dropdown-menu-item-active{
+    color: #ccc;
+    background: @selectItemOver;
+  }
+  li.ant-select-dropdown-menu-item-selected{
+    color: #ccc;
+    background: @selectItemOver;
+  }
+}
+
+.klineChart{
+  width: 100%;
+  height: 100%;
+  background: @background-color-plate;
+  .getflex(space-between; @main: column);
+  .handlerList{
+    width: 100%;
+    height: 26px;
+    border-bottom: 1px solid @border-color-base;
+    .getflex(space-between; center);
+    .handlerLeft{
+      div{
+        border-left: 0;
+      }
+    }
+    .handlerRight{
+      .getflex(flex-end; center);
+      & > div{
+        border-right: 0;
+      }
+      .reinstatement{
+        .ant-select-selection{
+          padding: 0;
+          background: rgba(0, 0, 0, 0);
+          border: 0;
+          box-shadow: unset !important;
+          padding-right: 15px;
+          .ant-select-selection__rendered{
+            border: 0;
+            padding: 0;
+            margin: 0;
+            margin-left: 0;
+            .ant-select-selection-selected-value{
+              border: 0;
+              padding: 0;
+              color: @font-color-base;
+            }
+          }
+          .ant-select-arrow{
+            right: 0;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  .handlerLeft, .handlerRight, .normList{
+    position: relative;
+    height: 26px;
+    .iconMain{
+      position: absolute;
+      right: 13px;;
+      display: block;
+      width: 14px;
+    }
+    .getflex(flex-start; center);
+    div{
+      padding: 0 8px;
+      height: 100%;
+      cursor: pointer;
+      box-sizing: border-box;
+      .getflex(center; center);
+      border-right: 1px solid @border-color-base;
+      border-left: 1px solid @border-color-base;
+      border-bottom: 1px solid @border-color-base;
+    }
+    div:hover{
+      background: @background-color-tab;
+      color: @font-table-active-color;
+    }
+  }
+  .active{
+    background: @background-color-tab;
+    color: @font-table-active-color;
+  }
+  .normList{
+    width: 100%;
+    border-top: 1px solid @border-color-base;
+    div{
+      border-left: 0;
+    }
+  }
+  .klineBox{
+    width: 100%;
+    height: 100%;
+    .stockOper{
+      width: 100%;
+      height: 28px;
+      position: absolute;
+      top: 26px;
+      .getflex(space-between; center);
+      .stockInfo, .stockBar > *{
+        padding: 0 5px;
+      }
+      .stockInfo{
+        .getflex();
+        div{
+          margin-left: 10px;
+        }
+        .stockName{
+          color: #ccc;
+        }
+        .stockNewValue{
+          color: #60aaf5;
+        }
+        .stockAvgValue{
+          color: #de982d;
+        }
+      }
+      .stockBar{
+        >*{
+          margin-right: 10px;
+        }
+      }
+    }
+    .klineSeterPanel{
+      position: fixed;
+      width: 460px;
+      height: 400px;
+      z-index: 10;
+      background: #fafafa;
+      left: calc(~'50% - 230px');
+      top: calc(~'50% - 200px');
+      border-radius: 3px 3px 0 0;
+      .content{
+        position: relative;
+        padding: 0;
+        background: #fafafa;
+      }
+    }
+    .drawLineToolsPanel{
+      position: fixed;
+      width: 190px;
+      height: 654px;
+      z-index: 10;
+      left: calc(~'50% - 95px');
+      top: calc(~'50% - 327px');
+      border-radius: 3px 3px 0 0;
+      .content{
+        position: relative;
+        padding: 0;
+        background: #fafafa;
+        .getflex(@main: column);
+        .group{
+          width: 100%;
+          .title{
+            width: 100%;
+            text-align: center;
+            color: #838383;
+            margin-bottom: 5px;
+          }
+          .group-icons{
+            text-align: center;
+            li{
+              display: inline-block;
+              margin: 5px 10px 5px 10px;
+              width: 33px;
+              height: 33px;
+              background-size: 100%;
+              background-repeat: no-repeat;
+              border: 1px solid #c0c0c0;
+              display: inline-block;
+            }
+          }
+        }
+        .group:first-child .title:nth-child(1){
+          margin-top: 5px;
+        }
+      }
+    }
+    .klineSeterPanel, .drawLineToolsPanel{
+      .panelTitle{
+        border-bottom: none;
+        text-align: center;
+        border-radius: 3px 3px 0 0;
+        height: 28px;
+        position: relative;
+        background-color: #424e6b;
+        padding: 0 10px;
+        .getflex(space-between; center);
+        h1{
+          color: white;
+          line-height: 28px;
+          font-size: 12px;
+          height: 100%;
+          text-align: left;
+          padding: 0;
+          margin: 0;
+        }
+        .closePanel{
+          color: #838383;
+        }
+      }
+      .content{
+        .disable{
+          color: rgba(0,0,0,.25) !important;
+          background-color: #f5f5f5 !important;
+          border-color: #d9d9d9 !important;
+          cursor: not-allowed !important;
+        }
+      }
+    }
+  }
+}

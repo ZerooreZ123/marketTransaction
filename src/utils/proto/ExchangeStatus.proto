@@ -1,0 +1,28 @@
+// See README.txt for information and build instructions.
+
+package com.xinyu.unidata.protocbuf;
+
+option java_package = "com.xinyu.unidata.protocbuf";
+option java_outer_classname = "ExchangeStatusProtos";
+
+message ExchangeStatus {
+  //交易所，（sz/sh/hk/us）
+  required string exchange = 1;
+  	//交易状态
+	enum ExchangeStatusType {
+    //集合竞价
+    AUCTION = 0;
+    //交易中
+    TRANSACTION = 1;
+    //午间休市Lunch break
+    LUNCHBREAK = 2;
+    //已收盘
+    CLOSED = 3;
+    //未开盘
+    NOTOPENED = 4;
+     //非交易日
+    FESTIVELSBREAK= 5;
+  }
+  required ExchangeStatusType exchangeStatusType = 2;
+
+}

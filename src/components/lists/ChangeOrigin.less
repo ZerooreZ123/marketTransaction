@@ -1,0 +1,119 @@
+//引入全局样式
+@import "../../resources/style/ConfigVariables";
+
+.changeOrigin {
+  width: 100%;
+  height: 100%;
+  .getflex();
+  .changeBox{
+    width: 50%;
+    height: 100%;
+    .title {
+      width: 100%;
+      height: 28px;
+      font-family: "HiraginoSansGB W6";
+      line-height: 28px;
+      border-bottom: 1px solid @border-color-base;
+      padding-left: 5px;
+      background: @background-color-tab;
+      font-size:@font-size-base;
+    }
+    .content {
+      width: 100%;
+      height: calc(~'100% - 28px');
+      .contentBox{
+        width: 100%;
+        height: 50%;
+        .getflex(space-around; flex-start; column);
+        .contentItem{
+          width: 100%;
+          height: 100%;
+          .getflex();
+          padding: 8px;
+
+          div {
+            font-size: 14px;
+            width: 30%;
+            height: 100%;
+            .getflex(flex-end; center);
+          }
+          div:first-child {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: @font-new-color;
+            .getflex(flex-start; center);
+          }
+          div:last-child {
+            width: 40%;
+          }
+        }
+        .selected{
+          background-color: @font-color-list-active !important;
+          border-bottom: 1px solid @border-select-color;
+          box-sizing: border-box;
+        }
+        .contentItem:hover{
+          background: @font-color-list-active;
+          border-bottom: 1px solid @border-select-color;
+          box-sizing: border-box;
+        }
+        .contentItem div{
+          flex: 1;
+        }
+      }
+      .contentBox:nth-child(1){
+        border-bottom: 1px solid @border-color-base;
+      }
+    }
+  }
+  .changeBox:nth-child(1){
+    border-right: 1px solid @border-color-base;
+  }
+  //.content {
+  //  width: 100%;
+  //  height: 100%;
+  //  position: relative;
+  //  .mid-line{
+  //    width: 100%;
+  //    height: 1px;
+  //    background: @border-color-base;
+  //    position: absolute;
+  //    top: 50%;
+  //  }
+  //  .getflex(@main: column);
+  //  .contentBox {
+  //    flex: 1;
+  //    width: 100%;
+  //    padding: 2px 5px;
+  //    display: flex;
+  //    .getflex(space-around; center);
+  //    .upper0,
+  //    .under0 {
+  //      color: @font-color-base;
+  //    }
+  //    .under1,
+  //    .under2 {
+  //      color: @font-down-color;
+  //    }
+  //    .upper1,
+  //    .upper2 {
+  //      color: @font-up-color;
+  //    }
+  //    span {
+  //      flex: 1;
+  //      display: block;
+  //      text-align: center;
+  //      font-size: 14px;
+  //    }
+  //    span:first-child {
+  //      text-align: left;
+  //    }
+  //    span:last-child {
+  //      text-align: right;
+  //    }
+  //  }
+  //  .contentBox:hover{
+  //    background: @font-color-list-active;
+  //  }
+  //}
+}

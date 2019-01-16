@@ -1,0 +1,269 @@
+@import "../../resources/style/ConfigVariables";
+
+.getRNFlag(@text; @color: @font-new-color){
+  content: @text;
+  color: @color;
+  cursor: pointer;
+  position: absolute;
+  left: -13px;
+}
+
+.Scrollbar {
+  position: absolute;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity .6s;
+  background:@scrollbar-background-color;
+  .handle{
+    position: absolute;
+    border-radius: 3px;
+    background-clip: content-box;
+    border: none;
+    background: @scrollbar-color;
+  }
+}
+
+.rnFlag_R_up, .rnFlag_R_down, .rnFlag_N_up, .rnFlag_N_down, .rnFlag_N, .rnFlag_R{
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.rnFlag_R_up:after{
+  .getRNFlag('R', @font-up-color);
+}
+
+.rnFlag_R_down:after{
+  .getRNFlag('R', @font-down-color);
+}
+
+.rnFlag_N_up:after{
+  .getRNFlag('N', @font-up-color);
+}
+
+.rnFlag_N_down:after{
+  .getRNFlag('N', @font-down-color);
+}
+
+.rnFlag_R:after{
+  .getRNFlag('R');
+}
+
+.rnFlag_N:after{
+  .getRNFlag('N');
+}
+
+.horizontal {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  .handle{
+    height: 6px;
+    top: 1px;
+  }
+}
+.vertical{
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 8px;
+  .handle{
+    width: 6px;
+    right: 1px;
+  }
+}
+.TableOrigin{
+  .menuList{
+    position: fixed;
+    z-index: 100;
+    list-style: none;
+    background-color: #fafafa;
+    border-radius: 4px;
+    cursor: default;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    ul{
+      text-align: left;
+      box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+      margin: 0;
+      padding: 0;
+      li{
+        width: 100px;
+        position: relative;
+        padding: 0 0.3em 0 0.16em;
+        white-space: nowrap;
+        list-style: none;
+        height: 30px;
+        line-height: 30px;
+        min-width: 60px;
+        max-width: 120px;
+        box-sizing: border-box;
+        color: #333;
+        text-align: center;
+      }
+      li:hover{
+        background: #71b0ea;
+        color: #fff;
+      }
+    }
+  }
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex: 1;
+  .StockList{
+    flex: 1;
+    .getflex(@main: column);
+    background-color: #1c2435;
+    height: 100%;
+    width: 100%;
+    .TheadWrap{
+      background-color: @table-thead-background;
+      height: 28px;
+      min-height: 28px;
+      line-height: 28px;
+      width: 100%;
+      overflow: hidden;
+      z-index: 2;
+      box-sizing: border-box;
+      background-clip: content-box;
+      display: flex;
+      .brief{
+        background-color: @table-thead-background;
+        z-index: 1;
+        th:last-child{
+        }
+        th:first-child{
+          border-left: 0;
+        }
+      }
+      .detailOuter{
+        th{
+          position: relative;
+          padding-right: 15px;
+        }
+        th:last-child{
+          border-right: 0;
+        }
+      }
+      th{
+        border-right: 1px solid #020c2a;
+        box-sizing: border-box;
+      }
+    }
+    .TbodyWrap{
+      width: 100%;
+      position: relative;
+      box-sizing: border-box;
+      overflow: hidden;
+      flex: 1;
+      background: @background-color-plate;
+      .selected{
+        background-color: @font-color-list-active !important;
+        border-bottom: 1px solid @border-select-color;
+        box-sizing: border-box;
+      }
+      .TbodyInner {
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        
+        .detailOuter{
+          color: @font-color-base;
+        }
+       
+        .brief{
+          background: @background-color-plate;
+          z-index: 1;
+        }
+        .under{
+          color: @font-up-color;
+        }
+        .upper{
+          color: @font-down-color;
+        }
+        .yellow{
+          color: #e7940c
+        }
+        th{
+          color: @font-new-color;
+        }
+        th, td{
+          overflow: hidden;
+        }
+        tr>td:last-child{
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+  .resize-handle {
+    position: absolute;
+    top: 0;
+    width: 8px;
+    margin-right: -4px;
+    height: 28px;
+    cursor: col-resize;
+    z-index: 2;
+  }
+  table{
+    .reloadzxg{
+      position: relative;
+      &:after{
+        content: '';
+        cursor: pointer;
+        position: absolute;
+        top: 8px;
+        right: 5px;
+      }
+    }
+    .sortable{
+      position: relative;
+      &:after{
+        content: '';
+        cursor: pointer;
+        position: absolute;
+        top: 8px;
+        right: 5px;
+      }
+    }
+    tr{
+      height: 28px;
+      position: relative;
+      th{
+        color: @font-color-base;
+        text-align: right;
+        border-top: none;
+        border-bottom: none;
+        border: 1px solid @table-thead-border;
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      td{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: right;
+        padding: 0 5px;
+        box-sizing: border-box;
+        border: 1px solid @table-thead-border;
+      }
+      .order{
+        text-align: center;
+        position: relative;
+      }
+      .stockName{
+        text-align: left;
+        padding-left: 5px;
+      }
+      .stockCode{
+        text-align: left;
+        padding-left: 5px;
+      }
+      .is-my-stock{
+        color: @font-is-my-stock !important;
+      }
+    }
+  }
+}

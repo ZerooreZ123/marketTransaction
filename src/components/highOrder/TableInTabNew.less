@@ -1,0 +1,90 @@
+@import "../../resources/style/ConfigVariables";
+
+.uploadTipBox{
+  color: @font-color-base;
+  opacity: .9;
+  .ant-popover-inner-content{
+    padding: 0;
+    border: 1px solid #9a9aef;
+    z-index: 10;
+  }
+  .ant-popover-arrow{
+    background: @background-color-tab;
+    border: 1px solid #9a9aef;
+    z-index: -1;
+  }
+  .ant-popover-inner{
+    background: @background-color-tab;
+  }
+  .ant-popover-title{
+    color: @font-color-base;
+  }
+  .uploadTip{
+    padding: 6px 16px;
+    width: 280px;
+    height: 335px;
+    overflow: hidden;
+    .carItem{
+      color: @font-color-base;
+      counter-reset: caritem;
+      position: relative;
+      center{
+        font-size: 1.1em;
+        margin-bottom: 0.5em;
+      }
+      .carItemContent{
+        width: 100%;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+      }
+      text-align: left;
+      p{
+        margin-bottom: 0.3em;
+      }
+      img{
+        margin: 0 auto 0.5em;
+      }
+      p:before{
+        counter-increment: caritem;
+        content: counter(caritem) ". ";
+      }
+    }
+  }
+}
+.tableInTab{
+  position:relative;
+  .ant-tabs-top{
+    height: 100%;
+    .ant-tabs-content{
+      height: calc(~'100% - 29px');
+    }
+  }
+  .ant-tabs-bottom{
+    height: 100%;
+    .ant-tabs-content{
+      height: calc(~'100% - 29px');
+    }
+  }
+  .ant-tabs-bar{
+    margin: 0 ;
+  }
+  .upLoad{
+    z-index:90;
+    position:absolute;
+    top:-3px;
+    right:15px;
+    .ant-btn{
+      padding: 0;
+      font-size:14px;
+      line-height: 1.5;
+      color: #8ea5bf !important;
+      border: 1px solid transparent !important;
+      background:transparent !important;
+      &:hover{
+        color: #d8dfeb !important;
+      }
+    }
+  }
+}

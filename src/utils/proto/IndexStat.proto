@@ -1,0 +1,35 @@
+package com.xinyu.unidata.protocbuf;
+
+import "Security.proto";
+
+option java_package = "com.xinyu.unidata.protocbuf";
+option java_outer_classname = "IndexStatProto";
+
+// 盘口数据
+
+message IndexStat{
+	// 日期格式 yyyyMMdd
+	required int32 date = 1;
+	// 时间格式 HHmmssSSS
+	required int32 time = 2;
+
+	// 股票信息
+	required StockBasic stockBasic = 3;
+
+	// 今收盘价
+	optional int64 close = 4;
+
+	// 涨跌
+	optional int64 netChange = 5;
+	// 涨跌幅
+	optional float netChangeRatio = 6;
+
+	// 涨家数
+	optional int32 riseNum = 7;
+	// 平家数
+	optional int32 fairNum = 8;
+	// 跌家数
+	optional int32 fallNum = 9;
+
+
+}
